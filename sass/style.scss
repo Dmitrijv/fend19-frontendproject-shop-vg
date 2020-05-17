@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap");
+
+@import "core/buttons";
+@import "core/base";
+@import "core/table";
+
+@import "layout/main";
+@import "layout/top-nav";
+@import "layout/header";
+@import "layout/cart";
+@import "layout/content";
+@import "layout/sidebar";
+@import "layout/contact";
+@import "layout/footer";
+
+@import "search/search";
+
+@import "pages/order";
+@import "pages/single-product-page";
+@import "pages/latestProducts";
+@import "pages/checkout";
+@import "pages/lastchance";
+@import "pages/error";
