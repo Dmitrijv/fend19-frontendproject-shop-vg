@@ -915,13 +915,26 @@ button.open-overlay.inCartAnimation::after {
   background: white;
 }
 
-.main__header .loginArea {
+.main__header .login-area {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+.main__header .login-area .logn-btn {
+  background-color: #f60d4d;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  padding: 4px 10px;
+}
+
+.main__header .login-area .logn-btn a {
+  color: white;
+  text-decoration: none;
 }
 
 .cart {

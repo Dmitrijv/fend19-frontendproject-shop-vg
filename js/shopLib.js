@@ -2,7 +2,7 @@ shopLib = (function() {
   const info = "Helper library for drawing html elements based on db data.";
 
   const version = "0.2";
-  const SHOP_URL = `${location.protocol}//${location.host}/fend19-frontendproject-shop`;
+  const SHOP_URL = `${location.protocol}//${location.host}/fend19-frontendproject-shop-vg`;
   const CONTROLLER_PATH = `${SHOP_URL}/php/controller`;
   const INTERNAL_PATH = `${SHOP_URL}/php/internal`;
 
@@ -57,7 +57,7 @@ shopLib = (function() {
       const lib = this;
       const allowedCategoryId = Number(event.currentTarget.id);
       // if we are clicking category from some page other than start page go back there
-      if (location.pathname !== "/fend19-frontendproject-shop/index.php") {
+      if (location.pathname !== "/fend19-frontendproject-shop-vg/index.php") {
         sessionStorage.setItem("categoryFilterId", allowedCategoryId);
         location.href = SHOP_URL + "/index.php";
         event.preventDefault();
@@ -138,7 +138,7 @@ shopLib = (function() {
     searchProducts: function(event) {
       const keyword = document.forms["searchform"]["searchinput"].value.toLocaleLowerCase();
       // if we are not on search.php page remember this keyword in session storage and go to search.php
-      if (location.pathname !== "/fend19-frontendproject-shop/search.php") {
+      if (location.pathname !== "/fend19-frontendproject-shop-vg/search.php") {
         sessionStorage.setItem("searchKeyword", keyword);
         location.href = SHOP_URL + "/search.php";
         event.preventDefault();
@@ -260,7 +260,7 @@ shopLib = (function() {
       let totalSumCart = document.querySelector(".checkout-form__cart-section__totalsum"); //delivery fee check is in the bottom
       const keepShoppingBtn = document.querySelector(".checkout-form__cart-section__keep-shopping-btn");
       keepShoppingBtn.addEventListener("click", function() {
-        location.href = "/fend19-frontendproject-shop/index.php";
+        location.href = "/fend19-frontendproject-shop-vg/index.php";
       });
 
       /* object structure: id | name | img | price | qty */

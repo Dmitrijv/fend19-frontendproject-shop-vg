@@ -572,7 +572,20 @@ button.open-overlay.inCartAnimation::after {
   background: white;
 }
 
-.main__header .loginArea {
+.main__header .login-area {
   display: flex;
   justify-content: flex-end;
+
+  .logn-btn {
+    background-color: $red;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    padding: 4px 10px;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
 }
