@@ -26,7 +26,32 @@
 
     <main>
         <div class="content">
-            <div class='errorMessage hidden'>Ogiltigt mail eller lösenord.</div>
+
+            <div class='login-error hidden'>Ogiltigt mail eller lösenord.</div>
+
+            <form onsubmit="shopLib.login()" method="POST" class="checkout-form">
+
+            <!-- Left side, delivery section -->
+            <div class="checkout-form__container">
+                <section class="checkout-form__delivery-section">
+
+                    <div class="err-tips"></div>
+
+                    <h2 class="checkout-form__delivery-section__h2">Logga in</h2>
+
+                    <label class="checkout-form__delivery-section__label">e-postadress</label>
+                    <input class="checkout-form__delivery-section__input" id="email" type="text" name="email" maxlength=254>
+
+                    <label class="checkout-form__delivery-section__label">lösenord</label>
+                    <input class="checkout-form__delivery-section__input" id="fname" type="text" name="fname" maxlength=20>
+
+                    <button type="submit" class="checkout-form__delivery-section__deliveryBtn">logga in</button>
+
+                    <a>Kilicka här för att registrera dig.</a>
+
+                </section>
+            </form>
+
         </div>
     </main>
 
