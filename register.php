@@ -29,52 +29,52 @@
 
             <div class='login-error hidden'>Ogiltigt mail eller lösenord.</div>
 
-            <form onsubmit="shopLib.register()" method="POST" class="checkout-form">
+            <form onsubmit="shopLib.register()" method="POST" class="register-form">
 
-            <!-- Left side, delivery section -->
-            <div class="checkout-form__container">
-                <section class="checkout-form__delivery-section">
+                <!-- Left side, delivery section -->
+                <div class="checkout-form__container">
+                    <section class="checkout-form__delivery-section">
 
-                    <div class="err-tips"></div>
+                        <div class="err-tips"></div>
 
-                    <h2 class="checkout-form__delivery-section__h2">Registrera ny användare</h2>
+                        <h2 class="checkout-form__delivery-section__h2">Registrera ny användare</h2>
 
-                    <label class="checkout-form__delivery-section__label" for="">e-post</label>
-                    <input class="checkout-form__delivery-section__input" id="email" type="email" name="email" placeholder="example@mail.com" maxlength=254>
+                        <label class="checkout-form__delivery-section__label" for="">e-post</label>
+                        <input class="checkout-form__delivery-section__input" required id="email" type="email" name="email" placeholder="example@mail.com" maxlength=254>
 
-                    <label class="checkout-form__delivery-section__label">lösenord - <span class="password-status">saknas</span></label>
-                    <input class="checkout-form__delivery-section__input" id="pass" type="password" name="pass" maxlength=20>
+                        <label class="checkout-form__delivery-section__label">lösenord - <span class="password-status">saknas</span></label>
+                        <input class="checkout-form__delivery-section__input" required id="pass" type="password" name="pass" maxlength=20>
 
-                    <label class="checkout-form__delivery-section__label">bekräfta lösenord - <span class="password-confirm-status">saknas</span></label>
-                    <input class="checkout-form__delivery-section__input" id="passconfirm" type="password" name="passconfirm" maxlength=20>
+                        <label class="checkout-form__delivery-section__label">bekräfta lösenord - <span class="password-confirm-status">saknas</span></label>
+                        <input class="checkout-form__delivery-section__input" required id="passconfirm" type="password" name="passconfirm" maxlength=20>
 
-                    <label class="checkout-form__delivery-section__label" for="">Förnamn</label>
-                    <input class="checkout-form__delivery-section__input" id="fname" type="text" name="fname" maxlength=20>
+                        <label class="checkout-form__delivery-section__label" for="">Förnamn</label>
+                        <input class="checkout-form__delivery-section__input" required id="fname" type="text" name="fname" minlenght=2 maxlength=20>
 
-                    <label class="checkout-form__delivery-section__label" for="">Efternamn</label>
-                    <input class="checkout-form__delivery-section__input" id="lname" type="text" name="lname" maxlength=20>
+                        <label class="checkout-form__delivery-section__label" for="">Efternamn</label>
+                        <input class="checkout-form__delivery-section__input" required id="lname" type="text" name="lname" minlenght=2 maxlength=20>
 
-                    <label class="checkout-form__delivery-section__label" for="">Telefonnummer</label>
-                    <input class="checkout-form__delivery-section__input" id="tel" type="text" name="phone" placeholder="+46 or 07 pattern" maxlength=12>
+                        <label class="checkout-form__delivery-section__label" for="">Telefonnummer</label>
+                        <input class="checkout-form__delivery-section__input" required id="tel" type="text" name="phone" placeholder="+46 or 07 pattern" maxlength=12>
 
-                    <label class="checkout-form__delivery-section__label" for="">Gatuadress</label>
-                    <input class="checkout-form__delivery-section__input" id="adress" type="text" name="adress" placeholder="Gustafvägen 10D" maxlength=50>
+                        <label class="checkout-form__delivery-section__label" for="">Gatuadress</label>
+                        <input class="checkout-form__delivery-section__input" required id="adress" type="text" name="adress" placeholder="Gustafvägen 10D" maxlength=50>
 
-                    <label class="checkout-form__delivery-section__label" for="">Postnummer</label>
-                    <input class="checkout-form__delivery-section__input" id="pcode" type="text" name="pcode" placeholder="123 45" maxlength=7>
+                        <label class="checkout-form__delivery-section__label" for="">Postnummer</label>
+                        <input class="checkout-form__delivery-section__input" required id="pcode" type="text" name="pcode" placeholder="123 45" maxlength=7>
 
-                    <label class="checkout-form__delivery-section__label" for="">Ort</label>
-                    <input class="checkout-form__delivery-section__input" id="city" type="text" name="county" maxlength=50>
+                        <label class="checkout-form__delivery-section__label" for="">Ort</label>
+                        <input class="checkout-form__delivery-section__input" required id="city" type="text" name="county" maxlength=50>
 
-                    <!-- this is filled from local storage with js -->
-                    <input type="hidden" name="shoppingCart" value="">
+                        <button type="submit" class="checkout-form__delivery-section__deliveryBtn">Registrera ny användare</button>
 
-                    <button type="button" class="checkout-form__delivery-section__deliveryBtn">Registrera ny användare</button>
+                    </section>
+                </div>
 
-                </section>
             </form>
 
         </div>
+
     </main>
 
     <?php require_once __DIR__ . '/php/view/footer.php';?>
