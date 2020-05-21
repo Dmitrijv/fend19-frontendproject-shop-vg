@@ -47,8 +47,6 @@
 
                     <button type="submit" class="checkout-form__delivery-section__deliveryBtn">logga in</button>
 
-                    <a>Kilicka här för att registrera dig.</a>
-
                 </section>
             </form>
 
