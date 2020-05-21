@@ -2,7 +2,7 @@ adminLib = (function() {
   const info = "Helper library for making controller calls to php.";
 
   const version = "0.2";
-  const SHOP_URL = `${location.protocol}//${location.host}/fend19-frontendproject-shop`;
+  const SHOP_URL = `${location.protocol}//${location.host}/fend19-frontendproject-shop-vg`;
   const CONTROLLER_PATH = `${SHOP_URL}/admin/php/controller`;
   const INTERNAL_PATH = `${SHOP_URL}/admin/internal`;
 
@@ -622,7 +622,7 @@ adminLib = (function() {
     },
 
     redirectToOrdersPage(event) {
-      window.location.href = `${location.protocol}//${location.host}/fend19-frontendproject-shop/admin/orders.php`;
+      window.location.href = `${location.protocol}//${location.host}/fend19-frontendproject-shop-vg/admin/orders.php`;
       event.preventDefault();
     },
 

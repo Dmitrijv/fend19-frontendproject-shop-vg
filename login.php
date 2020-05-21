@@ -39,10 +39,10 @@
 
                     <h2 class="checkout-form__delivery-section__h2">Logga in</h2>
 
-                    <label class="checkout-form__delivery-section__label">e-postadress</label>
+                    <label class="checkout-form__delivery-section__label">E-post</label>
                     <input class="checkout-form__delivery-section__input" id="email" type="email" name="email" maxlength=254>
 
-                    <label class="checkout-form__delivery-section__label">lösenord</label>
+                    <label class="checkout-form__delivery-section__label">Lösenord</label>
                     <input class="checkout-form__delivery-section__input" id="pass" type="password" name="pass" maxlength=20>
 
                     <button type="submit" class="checkout-form__delivery-section__deliveryBtn">logga in</button>

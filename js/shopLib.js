@@ -318,6 +318,67 @@ shopLib = (function() {
         totalSumCart.innerHTML = "";
       }
       return subTotal;
+    },
+
+    registerNewUser: function(event) {
+      const lib = this;
+      const form = event.currentTarget;
+      const password = form.pass.value;
+      const confirmedPass = form.passconfirm.value;
+
+      // check if both pass fields contain the same string
+      if (password !== confirmedPass) {
+        abortRegistration("Lösenord bekräftelse stämmer inte.");
+        return;
+      }
+
+      // check if password is too weak
+      if (!lib.isStrongPassword(password)) {
+        abortRegistration("Lösenorder är för svagt.");
+        return;
+      }
+
+      // check if email is valid
+      const email = form.email.value;
+      if (!lib.isValidEmail(email)) {
+        abortRegistration("Ogiltigt E-post adress.");
+        return;
+      }
+
+      const formData = new FormData(form);
+
+      const xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          window.location.href = SHOP_URL;
+        } else if (this.readyState == 4 && this.status == 400) {
+          abortRegistration("Registreringen lyckades inte.");
+          return;
+        }
+      };
+
+      xmlhttp.open("POST", `${CONTROLLER_PATH}/user/registerNewUserRequest.php`);
+      xmlhttp.send(formData);
+      event.preventDefault();
+
+      function abortRegistration(message) {
+        const errMsg = document.querySelector("div#register-form-error-msg");
+        errMsg.textContent = message;
+        errMsg.scrollIntoView();
+        event.preventDefault();
+      }
+    },
+
+    isStrongPassword: function(string) {
+      const passwordRegex = new RegExp(
+        "^(((?=.*[a-z])(?=.*[A-Z]))((?=.*[A-Z])(?=.*[0-9])))(?=.*[!-._@#$%^&*]{1,})(?=.{8,})"
+      );
+      return passwordRegex.test(string);
+    },
+
+    isValidEmail: function(string) {
+      const emailRegex = /^[_A-Za-z0-9-]+(\.[_A-Za-z0-9-]+)*\@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)?(\.[A-Za-z]{2,})$/;
+      return emailRegex.test(string);
     }
   };
 

@@ -58,7 +58,7 @@ if (
     strlen($customerData['last_name']) > 20 ||
     strlen($customerData['phone']) > 12 ||
     strlen($customerData['street']) > 50 ||
-    strlen($customerData['postal_number']) > 7 ||
+    strlen($customerData['postal_number']) > 6 ||
     strlen($customerData['county']) > 50
 ) {
     header("Location: error.php?errorMessage=Ogiltigt input i formuläret.");
@@ -67,13 +67,13 @@ if (
 
 $customerDataId = md5(
     $customerData['email'] .
-        $customerData['first_name'] .
-        $customerData['first_name'] .
-        $customerData['last_name'] .
-        $customerData['phone'] .
-        $customerData['street'] .
-        $customerData['postal_number'] .
-        $customerData['county']
+    $customerData['first_name'] .
+    $customerData['first_name'] .
+    $customerData['last_name'] .
+    $customerData['phone'] .
+    $customerData['street'] .
+    $customerData['postal_number'] .
+    $customerData['county']
 );
 
 // save customer data if it doesn't already exist in db
@@ -174,9 +174,9 @@ $productListHtml .= '
         <span class="hamburger__bar"></span>
     </span>
 
-    <?php require_once __DIR__ . '/php/view/sidebar.php'; ?>
-    <?php require_once __DIR__ . '/php/view/header.php'; ?>
-    <?php require_once __DIR__ . '/php/view/cart.php'; ?>
+    <?php require_once __DIR__ . '/php/view/sidebar.php';?>
+    <?php require_once __DIR__ . '/php/view/header.php';?>
+    <?php require_once __DIR__ . '/php/view/cart.php';?>
 
     <main id="order-main">
 
@@ -224,9 +224,9 @@ $productListHtml .= '
         </section>
     </main>
 
-    <?php require_once __DIR__ . '/php/view/footer.php'; ?>
+    <?php require_once __DIR__ . '/php/view/footer.php';?>
 
-    <?php require __DIR__ . '/php/view/jscore.php'; ?>
+    <?php require __DIR__ . '/php/view/jscore.php';?>
 
     <script>
         localStorage.removeItem("products");
