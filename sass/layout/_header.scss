@@ -576,13 +576,14 @@ button.open-overlay.inCartAnimation::after {
   display: flex;
   justify-content: flex-end;
 
-  .logn-btn {
+  .small-btn {
     background-color: $red;
     border: none;
     border-radius: 3px;
     color: white;
     padding: 4px 10px;
-
+    min-width: 80px;
+    margin-left: 10px;
     a {
       color: white;
       text-decoration: none;

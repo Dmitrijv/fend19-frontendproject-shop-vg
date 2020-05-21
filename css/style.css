@@ -924,15 +924,17 @@ button.open-overlay.inCartAnimation::after {
           justify-content: flex-end;
 }
 
-.main__header .login-area .logn-btn {
+.main__header .login-area .small-btn {
   background-color: #f60d4d;
   border: none;
   border-radius: 3px;
   color: white;
   padding: 4px 10px;
+  min-width: 80px;
+  margin-left: 10px;
 }
 
-.main__header .login-area .logn-btn a {
+.main__header .login-area .small-btn a {
   color: white;
   text-decoration: none;
 }

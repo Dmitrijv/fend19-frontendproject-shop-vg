@@ -43,8 +43,13 @@
     </div>
 
     <div class="login-area">
+        <a href="register.php">
+            <button class="small-btn">
+                <p class="desktop-text">registrera</p>
+            </button>
+        </a>
         <a href="login.php">
-            <button class="logn-btn">
+            <button class="small-btn">
                 <p class="desktop-text">logga in</p>
             </button>
         </a>
