@@ -42,11 +42,11 @@
                         <label class="checkout-form__delivery-section__label" for="">e-post</label>
                         <input class="checkout-form__delivery-section__input" required id="email" type="email" name="email" placeholder="example@mail.com" maxlength=254>
 
-                        <label class="checkout-form__delivery-section__label">lösenord - <span class="password-status">saknas</span></label>
-                        <input class="checkout-form__delivery-section__input" required id="pass" type="password" name="pass" maxlength=20>
+                        <label class="checkout-form__delivery-section__label">lösenord <span class="pass-status"></span></label>
+                        <input class="checkout-form__delivery-section__input" required id="pass" type="password" name="pass" minlenght=8 maxlength=20>
 
-                        <label class="checkout-form__delivery-section__label">bekräfta lösenord - <span class="password-confirm-status">saknas</span></label>
-                        <input class="checkout-form__delivery-section__input" required id="passconfirm" type="password" name="passconfirm" maxlength=20>
+                        <label class="checkout-form__delivery-section__label">bekräfta lösenord <span class="passconfirm-status"></span></label>
+                        <input class="checkout-form__delivery-section__input" required id="passconfirm" type="password" name="passconfirm" minlenght=8 maxlength=20>
 
                         <label class="checkout-form__delivery-section__label" for="">Förnamn</label>
                         <input class="checkout-form__delivery-section__input" required id="fname" type="text" name="fname" minlenght=2 maxlength=20>
@@ -81,6 +81,7 @@
 
     <!-- js scripts go here -->
     <?php require_once __DIR__ . '/php/view/jscore.php';?>
+    <script type="text/javascript" src="./js/user/passwordValidator.js"></script>
 
 </body>
 

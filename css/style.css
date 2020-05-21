@@ -66,6 +66,22 @@ a {
   color: inherit;
 }
 
+.greenText {
+  color: #218838;
+}
+
+.redText {
+  color: red;
+}
+
+.orangeText {
+  color: orange;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 table {
   margin: 2rem 5vw;
   border-collapse: collapse;
