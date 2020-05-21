@@ -40,10 +40,10 @@
                     <h2 class="checkout-form__delivery-section__h2">Logga in</h2>
 
                     <label class="checkout-form__delivery-section__label">e-postadress</label>
-                    <input class="checkout-form__delivery-section__input" id="email" type="text" name="email" maxlength=254>
+                    <input class="checkout-form__delivery-section__input" id="email" type="email" name="email" maxlength=254>
 
                     <label class="checkout-form__delivery-section__label">lösenord</label>
-                    <input class="checkout-form__delivery-section__input" id="fname" type="text" name="fname" maxlength=20>
+                    <input class="checkout-form__delivery-section__input" id="pass" type="password" name="pass" maxlength=20>
 
                     <button type="submit" class="checkout-form__delivery-section__deliveryBtn">logga in</button>
 
