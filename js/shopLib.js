@@ -193,7 +193,12 @@ shopLib = (function() {
       const productInternal = `${INTERNAL_PATH}/products.php`;
       lib.loadJsonByXhr(productInternal, function(productJson) {
         const matchingProducts = productJson.filter(product => product.title.toLowerCase().indexOf(keyword) !== -1);
-        lib.drawProductPanel(matchingProducts);
+        if (matchingProducts.length > 0) {
+          document.querySelector(".emptyResultMessage").classList.add("hidden");
+          lib.drawProductPanel(matchingProducts);
+        } else {
+          document.querySelector(".emptyResultMessage").classList.remove("hidden");
+        }
       });
       sessionStorage.removeItem("searchKeyword");
     },

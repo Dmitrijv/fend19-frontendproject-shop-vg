@@ -40,7 +40,7 @@
                         <label class="checkout-form__delivery-section__label" for="">E-post</label>
                         <input class="checkout-form__delivery-section__input" required id="email" type="email" name="email" placeholder="example@mail.com" maxlength=254>
 
-                        <label class="checkout-form__delivery-section__label">Lösenord <span class="pass-status"></span></label>
+                        <label class="checkout-form__delivery-section__label">Lösenord</label>
                         <ul>
                             <li>minst 8 tecken totalt</li>
                             <li>minst 1 stor bokstav</li>
@@ -48,6 +48,7 @@
                             <li>minst 1 siffra</li>
                             <li>minst 1 special tecken (!-._@#$%^&*)</li>
                         </ul>
+                        <span class="pass-status"></span>
                         <input class="checkout-form__delivery-section__input" required id="pass" type="password" name="pass" minlenght=8 maxlength=20>
 
                         <label class="checkout-form__delivery-section__label">Bekräfta lösenordet <span class="passconfirm-status"></span></label>
@@ -60,7 +61,7 @@
                         <input class="checkout-form__delivery-section__input" required id="lname" type="text" name="lname" minlenght=1 maxlength=20>
 
                         <label class="checkout-form__delivery-section__label" for="">Telefonnummer</label>
-                        <input class="checkout-form__delivery-section__input" required id="tel" type="text" name="phone" placeholder="073-111 22 33" pattern="[0-9- ]{13,20}" minlength=13>
+                        <input class="checkout-form__delivery-section__input" required id="tel" type="text" name="phone" placeholder="073-111 22 33" pattern="[0-9- ]{10,13}" minlength=10 maxlength=13>
 
                         <label class="checkout-form__delivery-section__label" for="">Gatuadress</label>
                         <input class="checkout-form__delivery-section__input" required id="adress" type="text" name="adress" placeholder="Gustafvägen 10D" maxlength=50>
