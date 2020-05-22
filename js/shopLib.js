@@ -356,6 +356,9 @@ shopLib = (function() {
       xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           window.location.href = SHOP_URL;
+        } else if (this.readyState == 4 && this.status == 406) {
+          abortRegistration("E-post adressen är redan registrerad.");
+          return;
         } else if (this.readyState == 4 && this.status == 400) {
           abortRegistration("Registreringen lyckades inte.");
           return;

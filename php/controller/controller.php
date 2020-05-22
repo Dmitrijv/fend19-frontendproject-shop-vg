@@ -156,8 +156,14 @@ function createOrderedProduct($orderId, $product, $quantity)
 function createNewUser($user)
 {
     $sql = "
-        INSERT INTO user (password, customer_data_id)
-        VALUES (?, ?)
+        INSERT INTO user (email, password, customer_data_id)
+        VALUES (?, ?, ?)
     ";
-    DB::run($sql, [$user['password'], $user['customer_data_id']]);
+    DB::run($sql, [$user['email'], $user['password'], $user['customer_data_id']]);
+}
+
+function isEmailRegistered($email)
+{
+    return DB::run("SELECT EXISTS(SELECT * FROM user WHERE email = ?)", [$email])->fetchColumn();
+
 }

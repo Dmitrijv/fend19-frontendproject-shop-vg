@@ -27,6 +27,12 @@ $customerDataId = md5(
     $customerData['county']
 );
 
+// check if this email has already been registered
+if (isEmailRegistered($customerData['email']) == true) {
+    http_response_code(406);
+    die;
+}
+
 // save customer data if it doesn't already exist in db
 if (doesCustomerDataIdExist($customerDataId) == false) {
     saveCustomerDataToDb($customerDataId, $customerData);
@@ -35,6 +41,7 @@ if (doesCustomerDataIdExist($customerDataId) == false) {
 $password = $_POST['pass'];
 
 $newUser = [
+    "email" => $customerData['email'],
     "password" => password_hash($password, PASSWORD_DEFAULT),
     "customer_data_id" => $customerDataId,
 ];
