@@ -100,11 +100,12 @@ function getLastChanceProductIds()
 
 function createNewOrder($order)
 {
+    $userId = (isset($order['user_id'])) ? $order['user_id'] : 0;
     $sql = "
-        INSERT INTO active_order_of_products (date_ordered_at, status, customer_data_id, free_shipping)
-        VALUES (?, 1, ?, ?)
+        INSERT INTO active_order_of_products (date_ordered_at, status, customer_data_id, free_shipping, user_id)
+        VALUES (?, 1, ?, ?, ?)
     ";
-    DB::run($sql, [$order['date_ordered_at'], $order['customer_data_id'], $order['free_shipping']]);
+    DB::run($sql, [$order['date_ordered_at'], $order['customer_data_id'], $order['free_shipping'], $userId]);
 }
 
 function getOrderIdByTimeAndUser($date_ordered_at, $customer_data_id)
@@ -165,7 +166,6 @@ function createNewUser($user)
 function isEmailRegistered($email)
 {
     return DB::run("SELECT EXISTS(SELECT * FROM user WHERE email = ?)", [$email])->fetchColumn();
-
 }
 
 function isCorrectPassword($password, $email)
@@ -177,7 +177,7 @@ function isCorrectPassword($password, $email)
 function getCustomerDataByUserEmail($email)
 {
     $sql = "
-        SELECT user.id as userId, customer_data.*
+        SELECT user.id as user_id, customer_data.*
         FROM user, customer_data
         WHERE customer_data.id = user.customer_data_id
         AND user.email = ?

@@ -102,6 +102,10 @@ $order = [
     "customer_data_id" => $customerDataId,
     "free_shipping" => $free_shipping,
 ];
+// if we are making an order as a logged in user mark this order with our user id
+if (isset($_SESSION['userData']['user_id'])) {
+    $order['user_id'] = $_SESSION['userData']['user_id'];
+}
 createNewOrder($order);
 
 $orderId = getOrderIdByTimeAndUser($date_ordered_at, $customerDataId);

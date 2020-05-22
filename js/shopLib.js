@@ -80,7 +80,7 @@ shopLib = (function() {
     drawProductPanel: function(productJson) {
       const lib = this;
       productJson = productJson.filter(product => Number(product.numberInStock) > 0);
-      productJson = lib.shuffle(productJson);
+      //   productJson = lib.shuffle(productJson);
 
       const shoppingCart = lib.getShoppingCart();
       const productPanel = document.querySelector("div#productPanel");

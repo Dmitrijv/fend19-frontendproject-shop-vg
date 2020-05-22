@@ -347,7 +347,7 @@ function setOrderCompleted($orderId)
 
     /* register this order in completed orders table */
     DB::run("
-        INSERT INTO completed_order_of_products (id, date_ordered_at, status, customer_data_id, free_shipping)
+        INSERT INTO completed_order_of_products (id, date_ordered_at, status, customer_data_id, free_shipping, user_id)
         SELECT *
         FROM active_order_of_products
         WHERE active_order_of_products.id = ?;

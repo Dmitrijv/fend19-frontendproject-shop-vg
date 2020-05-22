@@ -935,19 +935,39 @@ button.open-overlay.inCartAnimation::after {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .main__header .login-area .small-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.main__header .login-area .small-btn img.userImg {
+  max-height: 20px;
+  max-width: 20px;
+  margin-right: 6px;
+}
+
+.main__header .login-area .small-btn {
+  font-size: 16px;
   background-color: #f60d4d;
   border: none;
   border-radius: 3px;
   color: white;
   padding: 4px 10px;
-  min-width: 80px;
-  margin-left: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.main__header .login-area .small-btn .desktop-text {
+  display: inherit !important;
 }
 
 .main__header .login-area .small-btn a {

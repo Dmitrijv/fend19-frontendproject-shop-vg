@@ -1,3 +1,37 @@
+<?php
+
+$loginAreaHtml = '';
+
+if (!isset($_SESSION['userData']) || !isset($_SESSION['userData']['user_id'])) {
+    $loginAreaHtml = '
+        <a href="register.php">
+            <button class="small-btn">
+                <p class="desktop-text">Ny användare</p>
+            </button>
+        </a>
+        <a href="login.php">
+            <button class="small-btn">
+                <p class="desktop-text">Logga in</p>
+            </button>
+        </a>
+    ';
+} else {
+    $loginAreaHtml = '
+        <a href="logout.php">
+            <button class="small-btn">
+                <p class="desktop-text">Logga ut</p>
+            </button>
+        </a>
+        <a href="user.php">
+            <button class="small-btn">
+                <p class="desktop-text"><img class="userImg" src="img/svg/header/user.png" alt="logged in">' . $_SESSION['userData']['first_name'] . '</p>
+            </button>
+        </a>
+    ';
+}
+
+?>
+
 <header class="main__header">
     <div class="main__header__top">
         <div class="logo"><a href="index.php"><img src="img/svg/Logo_SVG.svg" alt="Logo Image"></a></div>
@@ -43,16 +77,7 @@
     </div>
 
     <div class="login-area">
-        <a href="register.php">
-            <button class="small-btn">
-                <p class="desktop-text">registrera</p>
-            </button>
-        </a>
-        <a href="login.php">
-            <button class="small-btn">
-                <p class="desktop-text">logga in</p>
-            </button>
-        </a>
+        <?php echo $loginAreaHtml; ?>
     </div>
 
 </header>

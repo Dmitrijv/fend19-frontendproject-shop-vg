@@ -230,7 +230,6 @@
 .desktop-text {
   margin: 0;
   display: none;
-
   @media (min-width: 800px) {
     display: inherit;
   }
@@ -574,16 +573,30 @@ button.open-overlay.inCartAnimation::after {
 
 .main__header .login-area {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 
   .small-btn {
+    display: flex;
+    justify-content: flex-start;
+    img.userImg {
+      max-height: 20px;
+      max-width: 20px;
+      margin-right: 6px;
+    }
+  }
+
+  .small-btn {
+    font-size: 16px;
     background-color: $red;
     border: none;
     border-radius: 3px;
     color: white;
     padding: 4px 10px;
-    min-width: 80px;
-    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    .desktop-text {
+      display: inherit !important;
+    }
     a {
       color: white;
       text-decoration: none;
