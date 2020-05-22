@@ -56,10 +56,6 @@ a {
   max-width: 1200px;
   display: block;
 
-  .panel-content {
-    padding: 10px 15px;
-  }
-
   .panel-heading {
     text-align: center;
     font-size: 18px;
@@ -72,5 +68,13 @@ a {
     border-bottom: 1px solid lightgray;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
+  }
+
+  .panel-content {
+    padding: 10px 15px;
+  }
+
+  .panel-footer {
+    background-color: #f6f8fa;
   }
 }

@@ -1,6 +1,22 @@
 div.user-content {
   display: grid;
+  grid-template-areas:
+    "userDetails"
+    "purchaseHistory";
+  grid-template-rows: auto min-content;
+
+  @media only screen and (min-width: 800px) {
+    grid-template-areas: "userDetails purchaseHistory";
+    grid-template-columns: 1fr 2fr;
+  }
+
+  h2.empty-order-list-message {
+    text-align: center;
+  }
+
+  grid-gap: 10px;
   p,
+  span,
   tr,
   td,
   th,
@@ -15,9 +31,16 @@ header button {
   font-family: "Lato", sans-serif;
 }
 
-div.user-content dl.user-summary {
-  max-width: 500px;
+section.user-details {
+  grid-area: "userDetails";
+}
 
+section.purchase-history {
+  grid-area: "purchaseHistory";
+}
+
+div.user-content dl.user-summary {
+  min-width: 320px;
   & > * {
     margin-left: 0;
   }

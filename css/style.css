@@ -93,10 +93,6 @@ a {
   display: block;
 }
 
-.white-panel .panel-content {
-  padding: 10px 15px;
-}
-
 .white-panel .panel-heading {
   text-align: center;
   font-size: 18px;
@@ -109,6 +105,14 @@ a {
   border-bottom: 1px solid lightgray;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+}
+
+.white-panel .panel-content {
+  padding: 10px 15px;
+}
+
+.white-panel .panel-footer {
+  background-color: #f6f8fa;
 }
 
 table {
@@ -3649,9 +3653,27 @@ section.order-confirmation button[disabled] {
 div.user-content {
   display: -ms-grid;
   display: grid;
+      grid-template-areas: "userDetails" "purchaseHistory";
+  -ms-grid-rows: auto min-content;
+      grid-template-rows: auto -webkit-min-content;
+      grid-template-rows: auto min-content;
+  grid-gap: 10px;
+}
+
+@media only screen and (min-width: 800px) {
+  div.user-content {
+        grid-template-areas: "userDetails purchaseHistory";
+    -ms-grid-columns: 1fr 2fr;
+        grid-template-columns: 1fr 2fr;
+  }
+}
+
+div.user-content h2.empty-order-list-message {
+  text-align: center;
 }
 
 div.user-content p,
+div.user-content span,
 div.user-content tr,
 div.user-content td,
 div.user-content th,
@@ -3665,8 +3687,16 @@ header button {
   font-family: "Lato", sans-serif;
 }
 
+section.user-details {
+  grid-area: "userDetails";
+}
+
+section.purchase-history {
+  grid-area: "purchaseHistory";
+}
+
 div.user-content dl.user-summary {
-  max-width: 500px;
+  min-width: 320px;
 }
 
 div.user-content dl.user-summary > * {

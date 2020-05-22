@@ -36,23 +36,30 @@ $customerData = $_SESSION['userData'];
     <?php require_once __DIR__ . '/php/view/cart.php';?>
 
     <main>
-        <div class="content user-content">
-
-            <section class="user-details white-panel">
-                <div class="panel-heading">Dina uppgifter</div>
-                <dl class="user-summary panel-content" >
-                    <dt>Kundnamn</dt>
-                    <dd id="fullname"><?php echo htmlspecialchars($customerData['first_name'] . " " . $customerData['last_name'], ENT_QUOTES, 'UTF-8'); ?></dd>
-                    <dt>Telefon</dt>
-                    <dd id="phone"><?php echo htmlspecialchars($customerData['phone'], ENT_QUOTES, 'UTF-8'); ?></dd>
-                    <dt>E-post</dt>
-                    <dd id="email"> <?php echo htmlspecialchars($customerData['email'], ENT_QUOTES, 'UTF-8'); ?> </dd>
-                    <dt>Adress</dt>
-                    <dd id="address"><?php echo htmlspecialchars($customerData['street'] . ", " . $customerData['postal_number'] . ", " . $customerData['county'], ENT_QUOTES, 'UTF-8'); ?></dd>
-                </dl>
-            </section>
-            <section class="user-history"></section>
-
+        <div class="content">
+            <div class="user-content">
+                <!-- user details -->
+                <section class="user-details white-panel">
+                    <div class="panel-heading">Dina uppgifter</div>
+                    <dl class="user-summary panel-content" >
+                        <dt>Kundnamn</dt>
+                        <dd id="fullname"><?php echo htmlspecialchars($customerData['first_name'] . " " . $customerData['last_name'], ENT_QUOTES, 'UTF-8'); ?></dd>
+                        <dt>Telefon</dt>
+                        <dd id="phone"><?php echo htmlspecialchars($customerData['phone'], ENT_QUOTES, 'UTF-8'); ?></dd>
+                        <dt>E-post</dt>
+                        <dd id="email"> <?php echo htmlspecialchars($customerData['email'], ENT_QUOTES, 'UTF-8'); ?> </dd>
+                        <dt>Adress</dt>
+                        <dd id="address"><?php echo htmlspecialchars($customerData['street'] . ", " . $customerData['postal_number'] . ", " . $customerData['county'], ENT_QUOTES, 'UTF-8'); ?></dd>
+                    </dl>
+                </section>
+                <!-- purchase history -->
+                <section class="purchase-history white-panel">
+                    <div class="panel-heading">Dina köp hos oss: 0 kr totalt</div>
+                    <div class="panel-content" >
+                        <h2 class="empty-order-list-message" >Du har inte gjort några köp än.</h2>
+                    </div>
+                </section>
+            </div>
         </div>
     </main>
 
