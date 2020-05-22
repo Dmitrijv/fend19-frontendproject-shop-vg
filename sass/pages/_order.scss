@@ -25,19 +25,7 @@
   }
 }
 
-.white-panel {
-  margin-bottom: 20px;
-  background-color: #fff;
-  border: 1px solid lightgray;
-  border-radius: 4px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-  max-width: 1200px;
-  display: block;
-  // margin: 0 auto;
-}
-
 @media all and (-ms-high-contrast: none) {
-
   /* IE11 */
   *::-ms-backdrop,
   #order-main {
@@ -46,16 +34,6 @@
     justify-content: center;
   }
 }
-
-/* when it come to big screen, fix footer in case there is too little content, check the case if too many content
-Failed, no better solution for now. 
-Maybe SCSS funtion if will work for this, to be done later.*/
-// @media all and (-ms-high-contrast: none) and (min-width: 800px) {
-//   #order-body>.footer {
-//     position: absolute;
-//     bottom: 0;
-//   }
-// }
 
 section.order-confirmation {
   overflow: hidden;
@@ -94,7 +72,7 @@ section.order-confirmation {
       max-width: 500px;
     }
 
-    dl>* {
+    dl > * {
       margin-left: 0;
     }
 

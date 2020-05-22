@@ -1,0 +1,32 @@
+div.user-content {
+  display: grid;
+  p,
+  tr,
+  td,
+  th,
+  dt,
+  dd {
+    font-family: "Lato", sans-serif;
+  }
+}
+
+header p,
+header button {
+  font-family: "Lato", sans-serif;
+}
+
+div.user-content dl.user-summary {
+  max-width: 500px;
+
+  & > * {
+    margin-left: 0;
+  }
+
+  dt {
+    font-weight: 600;
+  }
+
+  dd {
+    margin-bottom: 0.5rem;
+  }
+}

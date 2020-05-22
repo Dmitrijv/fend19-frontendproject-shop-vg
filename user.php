@@ -6,7 +6,7 @@ if (!isset($_SESSION['userData'])) {
     die;
 }
 
-$userData = $_SESSION['userData'];
+$customerData = $_SESSION['userData'];
 
 ?>
 
@@ -38,7 +38,20 @@ $userData = $_SESSION['userData'];
     <main>
         <div class="content user-content">
 
-            <h1>Hello <?php echo $userData['first_name']; ?></h1>
+            <section class="user-details white-panel">
+                <div class="panel-heading">Dina uppgifter</div>
+                <dl class="user-summary panel-content" >
+                    <dt>Kundnamn</dt>
+                    <dd id="fullname"><?php echo htmlspecialchars($customerData['first_name'] . " " . $customerData['last_name'], ENT_QUOTES, 'UTF-8'); ?></dd>
+                    <dt>Telefon</dt>
+                    <dd id="phone"><?php echo htmlspecialchars($customerData['phone'], ENT_QUOTES, 'UTF-8'); ?></dd>
+                    <dt>E-post</dt>
+                    <dd id="email"> <?php echo htmlspecialchars($customerData['email'], ENT_QUOTES, 'UTF-8'); ?> </dd>
+                    <dt>Adress</dt>
+                    <dd id="address"><?php echo htmlspecialchars($customerData['street'] . ", " . $customerData['postal_number'] . ", " . $customerData['county'], ENT_QUOTES, 'UTF-8'); ?></dd>
+                </dl>
+            </section>
+            <section class="user-history"></section>
 
         </div>
     </main>

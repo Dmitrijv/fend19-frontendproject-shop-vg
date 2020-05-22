@@ -82,6 +82,35 @@ a {
   font-weight: bold;
 }
 
+.white-panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  max-width: 1200px;
+  display: block;
+}
+
+.white-panel .panel-content {
+  padding: 10px 15px;
+}
+
+.white-panel .panel-heading {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+  border-bottom-color: #dddddd;
+  padding: 10px 15px;
+  border-bottom: 1px solid lightgray;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
 table {
   margin: 2rem 5vw;
   border-collapse: collapse;
@@ -219,8 +248,8 @@ button {
   top: 0;
   width: 100%;
   background-color: white;
-  -webkit-box-shadow: 0px 31px 65px -16px rgba(0, 0, 0, 0.3);
-          box-shadow: 0px 31px 65px -16px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 15px 15px -16px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 15px 15px -16px rgba(0, 0, 0, 0.3);
   padding: 0.5em 0.5em 0.5em 0.5em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -964,6 +993,10 @@ button.open-overlay.inCartAnimation::after {
   padding: 4px 10px;
   margin-top: 10px;
   margin-right: 10px;
+}
+
+.main__header .login-area .small-btn:hover {
+  background-color: #9fa255;
 }
 
 .main__header .login-area .small-btn .desktop-text {
@@ -2562,17 +2595,6 @@ div.product > div > button:nth-child(4) {
   display: none;
 }
 
-.white-panel {
-  margin-bottom: 20px;
-  background-color: #fff;
-  border: 1px solid lightgray;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-  max-width: 1200px;
-  display: block;
-}
-
 @media all and (-ms-high-contrast: none) {
   /* IE11 */
   *::-ms-backdrop,
@@ -2585,9 +2607,6 @@ div.product > div > button:nth-child(4) {
   }
 }
 
-/* when it come to big screen, fix footer in case there is too little content, check the case if too many content
-Failed, no better solution for now. 
-Maybe SCSS funtion if will work for this, to be done later.*/
 section.order-confirmation {
   overflow: hidden;
   font-size: 16px;
@@ -3625,5 +3644,40 @@ section.order-confirmation button[disabled] {
 .third:hover {
   -webkit-box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
           box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+}
+
+div.user-content {
+  display: -ms-grid;
+  display: grid;
+}
+
+div.user-content p,
+div.user-content tr,
+div.user-content td,
+div.user-content th,
+div.user-content dt,
+div.user-content dd {
+  font-family: "Lato", sans-serif;
+}
+
+header p,
+header button {
+  font-family: "Lato", sans-serif;
+}
+
+div.user-content dl.user-summary {
+  max-width: 500px;
+}
+
+div.user-content dl.user-summary > * {
+  margin-left: 0;
+}
+
+div.user-content dl.user-summary dt {
+  font-weight: 600;
+}
+
+div.user-content dl.user-summary dd {
+  margin-bottom: 0.5rem;
 }
 /*# sourceMappingURL=style.css.map */
