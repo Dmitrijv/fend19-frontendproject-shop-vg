@@ -51,7 +51,7 @@
                         <input class="checkout-form__delivery-section__input" required id="pass" type="password" name="pass" minlenght=8 maxlength=20>
 
                         <label class="checkout-form__delivery-section__label">Bekräfta lösenordet <span class="passconfirm-status"></span></label>
-                        <input class="checkout-form__delivery-section__input" required id="passconfirm" type="password" name="passconfirm" minlenght=8 maxlength=20>
+                        <input class="checkout-form__delivery-section__input" required id="passconfirm" type="password" name="passconfirm" minlenght=8 maxlength=30>
 
                         <label class="checkout-form__delivery-section__label" for="">Förnamn</label>
                         <input class="checkout-form__delivery-section__input" required id="fname" type="text" name="fname" minlenght=1 maxlength=20>

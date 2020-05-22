@@ -129,7 +129,6 @@ function saveCustomerDataToDb($id, $data)
 function doesCustomerDataIdExist($id)
 {
     return DB::run("SELECT EXISTS(SELECT * FROM customer_data WHERE id = ?)", [$id])->fetchColumn();
-
 }
 
 function createOrderedProduct($orderId, $product, $quantity)
@@ -152,4 +151,13 @@ function createOrderedProduct($orderId, $product, $quantity)
     // remove ordered items from stoc
     DB::run("UPDATE product SET number_in_stock = ? WHERE id = ?", [$newNumberInStock, $productId]);
 
+}
+
+function createNewUser($user)
+{
+    $sql = "
+        INSERT INTO user (password, customer_data_id)
+        VALUES (?, ?)
+    ";
+    DB::run($sql, [$user['password'], $user['customer_data_id']]);
 }
