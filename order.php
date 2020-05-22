@@ -5,6 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['shoppingCart'])) {
     die();
 }
 
+session_start();
+
 require_once __DIR__ . "/php/controller/controller.php";
 require_once __DIR__ . "/php/model/utils.php";
 

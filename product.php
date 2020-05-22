@@ -5,6 +5,8 @@ if (!isset($_GET['productId']) || !is_numeric($_GET['productId'])) {
     die;
 }
 
+session_start();
+
 require_once __DIR__ . "/php/controller/controller.php";
 
 $productId = intval($_GET['productId']);
@@ -75,9 +77,9 @@ for ($i = 0; $i < count($gallery) - 1; $i++) {
         <span class="hamburger__bar"></span>
     </span>
 
-    <?php require_once __DIR__ . '/php/view/sidebar.php'; ?>
-    <?php require_once __DIR__ . '/php/view/header.php'; ?>
-    <?php require_once __DIR__ . '/php/view/cart.php'; ?>
+    <?php require_once __DIR__ . '/php/view/sidebar.php';?>
+    <?php require_once __DIR__ . '/php/view/header.php';?>
+    <?php require_once __DIR__ . '/php/view/cart.php';?>
 
     <main id="p-main">
 
@@ -130,11 +132,11 @@ for ($i = 0; $i < count($gallery) - 1; $i++) {
         </div>
     </main>
 
-    <?php require_once __DIR__ . '/php/view/footer.php'; ?>
+    <?php require_once __DIR__ . '/php/view/footer.php';?>
 
     <!-- js scripts go here -->
     <script type="text/javascript" src="./js/ie11/autoplay.js"></script>
-    <?php require_once __DIR__ . '/php/view/jscore.php'; ?>
+    <?php require_once __DIR__ . '/php/view/jscore.php';?>
     <script>
         var productBtn = document.querySelectorAll(".product__add-btn");
         addProduct(productBtn);

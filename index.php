@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,9 +23,9 @@
         <span class="hamburger__bar"></span>
     </span>
 
-    <?php require_once __DIR__ . '/php/view/sidebar.php'; ?>
-    <?php require_once __DIR__ . '/php/view/header.php'; ?>
-    <?php require_once __DIR__ . '/php/view/cart.php'; ?>
+    <?php require_once __DIR__ . '/php/view/sidebar.php';?>
+    <?php require_once __DIR__ . '/php/view/header.php';?>
+    <?php require_once __DIR__ . '/php/view/cart.php';?>
 
     <main>
         <div class="content">
@@ -30,10 +34,10 @@
         </div>
     </main>
 
-    <?php require_once __DIR__ . '/php/view/footer.php'; ?>
+    <?php require_once __DIR__ . '/php/view/footer.php';?>
 
     <!-- js scripts go here -->
-    <?php require_once __DIR__ . '/php/view/jscore.php'; ?>
+    <?php require_once __DIR__ . '/php/view/jscore.php';?>
     <script type="text/javascript">
         shopLib.drawDefaultProductPanel();
     </script>

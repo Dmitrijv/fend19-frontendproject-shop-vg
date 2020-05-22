@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $errorMessage = "Sidan existerar inte.";
 if (isset($_GET['errorMessage'])) {
     $errorMessage = $_GET['errorMessage'];
@@ -27,9 +27,9 @@ if (isset($_GET['errorMessage'])) {
         <span class="hamburger__bar"></span>
     </span>
 
-    <?php require_once __DIR__ . '/php/view/sidebar.php'; ?>
-    <?php require_once __DIR__ . '/php/view/header.php'; ?>
-    <?php require_once __DIR__ . '/php/view/cart.php'; ?>
+    <?php require_once __DIR__ . '/php/view/sidebar.php';?>
+    <?php require_once __DIR__ . '/php/view/header.php';?>
+    <?php require_once __DIR__ . '/php/view/cart.php';?>
 
     <main>
         <div class="content">
@@ -39,10 +39,10 @@ if (isset($_GET['errorMessage'])) {
         </div>
     </main>
 
-    <?php require_once __DIR__ . '/php/view/footer.php'; ?>
+    <?php require_once __DIR__ . '/php/view/footer.php';?>
 
     <!-- js scripts go here -->
-    <?php require_once __DIR__ . '/php/view/jscore.php'; ?>
+    <?php require_once __DIR__ . '/php/view/jscore.php';?>
 
 </body>
 

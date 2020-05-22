@@ -1,7 +1,8 @@
 <?php
-
+session_start();
 include __DIR__ . '/php/view/contactform.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
