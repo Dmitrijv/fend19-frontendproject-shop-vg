@@ -167,3 +167,20 @@ function isEmailRegistered($email)
     return DB::run("SELECT EXISTS(SELECT * FROM user WHERE email = ?)", [$email])->fetchColumn();
 
 }
+
+function isCorrectPassword($password, $email)
+{
+    $storedHash = DB::run("SELECT password FROM user WHERE email = ?", [$email])->fetchColumn();
+    return password_verify($password, $storedHash);
+}
+
+function getCustomerDataByUserEmail($email)
+{
+    $sql = "
+        SELECT user.id as userId, customer_data.*
+        FROM user, customer_data
+        WHERE customer_data.id = user.customer_data_id
+        AND user.email = ?
+    ";
+    return DB::run($sql, [$email])->fetch(PDO::FETCH_ASSOC);
+}

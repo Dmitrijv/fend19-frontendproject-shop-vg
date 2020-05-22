@@ -377,6 +377,31 @@ shopLib = (function() {
       }
     },
 
+    login: function(event) {
+      const form = event.currentTarget;
+      const formData = new FormData(form);
+
+      const xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          window.location.href = SHOP_URL;
+        } else if (this.readyState == 4 && this.status == 400) {
+          abortLogin("Fel e-post eller lösenord.");
+          return;
+        }
+      };
+
+      xmlhttp.open("POST", `${CONTROLLER_PATH}/user/loginRequest.php`);
+      xmlhttp.send(formData);
+      event.preventDefault();
+
+      function abortLogin(message) {
+        const errMsg = document.querySelector("div#login-error-msg");
+        errMsg.textContent = message;
+        event.preventDefault();
+      }
+    },
+
     isStrongPassword: function(string) {
       const passwordRegex = new RegExp(
         "^(((?=.*[a-z])(?=.*[A-Z]))((?=.*[A-Z])(?=.*[0-9])))(?=.*[!-._@#$%^&*]{1,})(?=.{8,})"

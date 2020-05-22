@@ -32,13 +32,11 @@ session_start();
 
             <div class='login-error hidden'>Ogiltigt mail eller lösenord.</div>
 
-            <form onsubmit="shopLib.login()" method="POST" class="checkout-form">
+            <form onsubmit="shopLib.login(event)" method="POST" class="checkout-form">
 
             <!-- Left side, delivery section -->
             <div class="checkout-form__container">
                 <section class="checkout-form__delivery-section">
-
-                    <div class="err-tips"></div>
 
                     <h2 class="checkout-form__delivery-section__h2">Logga in</h2>
 
@@ -46,7 +44,9 @@ session_start();
                     <input class="checkout-form__delivery-section__input" id="email" type="email" name="email" maxlength=254>
 
                     <label class="checkout-form__delivery-section__label">Lösenord</label>
-                    <input class="checkout-form__delivery-section__input" id="pass" type="password" name="pass" maxlength=20>
+                    <input class="checkout-form__delivery-section__input" id="pass" type="password" name="pass" maxlength=30>
+
+                    <div id="login-error-msg" class="redText"></div>
 
                     <button type="submit" class="checkout-form__delivery-section__deliveryBtn">logga in</button>
 
