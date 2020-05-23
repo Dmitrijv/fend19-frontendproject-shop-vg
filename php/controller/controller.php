@@ -184,3 +184,135 @@ function getCustomerDataByUserEmail($email)
     ";
     return DB::run($sql, [$email])->fetch(PDO::FETCH_ASSOC);
 }
+
+function getActiveUserOrders($user_id, $customer_data_id)
+{
+    $stmt = DB::run("
+        SELECT
+            active_order_of_products.id as id,
+            active_order_of_products.date_ordered_at as date_ordered_at,
+            customer_data.county as county,
+            active_order_of_products.status as status_id,
+            SUM(ordered_product.price * ordered_product.quantity) as order_total,
+            SUM(ordered_product.quantity) as item_count,
+            order_status.name as status_name,
+            active_order_of_products.free_shipping as free_shipping
+        FROM
+            active_order_of_products,
+            order_status,
+            ordered_product,
+            customer_data
+        WHERE
+            active_order_of_products.status = order_status.id
+            AND ordered_product.order_id = active_order_of_products.id
+            AND active_order_of_products.customer_data_id = customer_data.id
+            AND (active_order_of_products.user_id = ? OR active_order_of_products.customer_data_id = ?)
+        GROUP BY
+            active_order_of_products.id
+        ORDER BY
+            active_order_of_products.status ASC
+    ", [$user_id, $customer_data_id]);
+    $response = [];
+    while ($tableRow = $stmt->fetch(PDO::FETCH_LAZY)) {
+        $order = [
+            "id" => $tableRow['id'],
+            "date_ordered_at" => $tableRow['date_ordered_at'],
+            "county" => $tableRow['county'],
+            "status_id" => $tableRow['status_id'],
+            "status_name" => $tableRow['status_name'],
+            "order_total" => $tableRow['order_total'],
+            "free_shipping" => $tableRow['free_shipping'],
+            "item_count" => $tableRow['item_count'],
+        ];
+        array_push($response, $order);
+    }
+    return $response;
+}
+
+function getCompletedUserOrders($user_id, $customer_data_id)
+{
+    $stmt = DB::run("
+        SELECT
+            completed_order_of_products.id as id,
+            completed_order_of_products.date_ordered_at as date_ordered_at,
+            customer_data.county as county,
+            completed_order_of_products.status as status_id,
+            SUM(delivered_product.price) as order_total,
+            COUNT(delivered_product.product_id) as item_count,
+            order_status.name as status_name,
+            completed_order_of_products.free_shipping as free_shipping
+        FROM
+            completed_order_of_products,
+            order_status,
+            delivered_product,
+            customer_data
+        WHERE
+            completed_order_of_products.status = order_status.id
+            AND delivered_product.order_id = completed_order_of_products.id
+            AND completed_order_of_products.customer_data_id = customer_data.id
+            AND (completed_order_of_products.user_id = ? OR completed_order_of_products.customer_data_id = ?)
+        GROUP BY
+            completed_order_of_products.id
+        ORDER BY
+            date_ordered_at DESC
+    ", [$user_id, $customer_data_id]);
+    $response = [];
+    while ($tableRow = $stmt->fetch(PDO::FETCH_LAZY)) {
+        $order = [
+            "id" => $tableRow['id'],
+            "date_ordered_at" => $tableRow['date_ordered_at'],
+            "county" => $tableRow['county'],
+            "status_id" => $tableRow['status_id'],
+            "status_name" => $tableRow['status_name'],
+            "order_total" => $tableRow['order_total'],
+            "free_shipping" => $tableRow['free_shipping'],
+            "item_count" => $tableRow['item_count'],
+        ];
+        array_push($response, $order);
+    }
+    return $response;
+}
+
+function getOrderByIdAndStatus($orderId, $statusId)
+{
+    $targetTable = ($statusId == 3) ? "completed_order_of_products" : "active_order_of_products";
+    return DB::run("
+        SELECT " . $targetTable . ".*, order_status.name as status_name
+        FROM " . $targetTable . ",
+        order_status
+        WHERE " . $targetTable . ".id = ?
+        AND status = order_status.id
+    ", [$orderId])->fetch(PDO::FETCH_ASSOC);
+}
+
+function getCustomerDataById($customerId)
+{
+    return DB::run("
+        SELECT *
+        FROM customer_data
+        WHERE id = ?
+    ", [$customerId])->fetch(PDO::FETCH_ASSOC);
+}
+
+function getProductsByOrderIdAndStatus($orderId, $statusId)
+{
+    $targetTable = ($statusId == 3) ? "delivered_product" : "ordered_product";
+
+    $stmt = DB::run("
+        SELECT *
+        FROM " . $targetTable . "
+        WHERE " . $targetTable . ".order_id = ?
+    ", [$orderId]);
+
+    $response = [];
+    while ($tableRow = $stmt->fetch(PDO::FETCH_LAZY)) {
+        $product = [
+            "product_id" => $tableRow['product_id'],
+            "order_id" => $tableRow['order_id'],
+            "price" => $tableRow['price'],
+            "quantity" => $tableRow['quantity'],
+        ];
+        array_push($response, $product);
+    }
+    return $response;
+}

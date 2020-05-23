@@ -1,4 +1,4 @@
-table {
+table:not(.db-table) {
   margin: 2rem 5vw;
   border-collapse: collapse;
 
@@ -28,7 +28,7 @@ table {
     text-align: left;
   }
 
-  tr+tr {
+  tr + tr {
     border-top: 1px dashed grey;
   }
 

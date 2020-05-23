@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  z-index: 1000;//what if set it as 1??
+  z-index: 1000; //what if set it as 1??
   background-color: #e6dfdf;
   min-width: 300px;
   min-height: 300px;
@@ -11,6 +11,10 @@
   top: 38px;
   left: 50%;
   transform: translateX(-50%);
+
+  a {
+    text-decoration: none;
+  }
 
   @media screen and (min-width: 800px) {
     top: 63px;
@@ -181,7 +185,6 @@
 
 /* some setting for IE 11, to keep each row's content vertically in the middle */
 @media all and (-ms-high-contrast: none) {
-
   /* IE11 */
   *::-ms-backdrop,
   .cart__product-text,
@@ -190,7 +193,7 @@
     -ms-grid-row-align: center;
   }
 
-  .cart__product-pull-right>*:not(:last-child) {
+  .cart__product-pull-right > *:not(:last-child) {
     margin-right: 5px;
   }
 }
@@ -220,7 +223,7 @@
 
 /* this code is not strictly necessary: just to make this demo a bit pleasant */
 
-.overlay>div {
+.overlay > div {
   width: 80%;
   max-width: 650px;
   padding-top: 25px;
@@ -267,7 +270,7 @@
 }
 
 /* individuell delbtn hover color */
-.cart__product-delete>img:hover {
+.cart__product-delete > img:hover {
   filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
   transform: scale(1.5);
 }

@@ -1,7 +1,7 @@
 <?php
 
 if (!isset($_GET['productId']) || !is_numeric($_GET['productId'])) {
-    header("Location: error.php");
+    header("Location: error.php?errorMessage=Produkten existerar inte.");
     die;
 }
 
@@ -12,7 +12,7 @@ require_once __DIR__ . "/php/controller/controller.php";
 $productId = intval($_GET['productId']);
 $product = getProductById($productId);
 
-$classList;
+$classList = "";
 if (isset($product['old']) && $product['old'] == true) {
     $classList = 'oldProduct';
 } else if (isset($product['new']) && $product['new'] == true) {
@@ -20,7 +20,7 @@ if (isset($product['old']) && $product['old'] == true) {
 }
 
 if (!isset($product['title'])) {
-    header("Location: error.php");
+    header("Location: error.php?errorMessage=Produkten existerar inte.");
     die;
 }
 

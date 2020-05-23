@@ -6,16 +6,21 @@ div.user-content {
   grid-template-rows: auto min-content;
 
   @media only screen and (min-width: 800px) {
-    grid-template-areas: "userDetails purchaseHistory";
-    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+      "userDetails purchaseHistory"
+      ". purchaseHistory";
+    grid-template-columns: 1fr 2.5fr;
   }
+
+  grid-gap: 10px;
+  margin: 10px;
 
   h2.empty-order-list-message {
     text-align: center;
   }
 
-  grid-gap: 10px;
   p,
+  a,
   span,
   tr,
   td,
@@ -26,21 +31,30 @@ div.user-content {
   }
 }
 
-header p,
-header button {
-  font-family: "Lato", sans-serif;
+div.user-content div.change-btn-container {
+  padding: 0 15px 15px;
+  width: 100%;
+}
+
+div.user-content button.changeInput {
+  width: 100%;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 section.user-details {
   grid-area: "userDetails";
+  height: min-content;
 }
 
 section.purchase-history {
   grid-area: "purchaseHistory";
+  height: min-content;
 }
 
 div.user-content dl.user-summary {
-  min-width: 320px;
+  min-width: 300px;
   & > * {
     margin-left: 0;
   }

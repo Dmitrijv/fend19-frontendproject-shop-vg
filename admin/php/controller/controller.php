@@ -273,7 +273,7 @@ function getActiveOrders()
     ");
     $response = [];
     while ($tableRow = $stmt->fetch(PDO::FETCH_LAZY)) {
-        $category = [
+        $order = [
             "id" => $tableRow['id'],
             "date_ordered_at" => $tableRow['date_ordered_at'],
             "county" => $tableRow['county'],
@@ -283,7 +283,7 @@ function getActiveOrders()
             "free_shipping" => $tableRow['free_shipping'],
             "item_count" => $tableRow['item_count'],
         ];
-        array_push($response, $category);
+        array_push($response, $order);
     }
     return $response;
 }
@@ -316,7 +316,7 @@ function getCompletedOrders()
     ");
     $response = [];
     while ($tableRow = $stmt->fetch(PDO::FETCH_LAZY)) {
-        $category = [
+        $order = [
             "id" => $tableRow['id'],
             "date_ordered_at" => $tableRow['date_ordered_at'],
             "county" => $tableRow['county'],
@@ -326,10 +326,9 @@ function getCompletedOrders()
             "free_shipping" => $tableRow['free_shipping'],
             "item_count" => $tableRow['item_count'],
         ];
-        array_push($response, $category);
+        array_push($response, $order);
     }
     return $response;
-
 }
 
 function setOrderInProgress($orderId)
@@ -377,11 +376,6 @@ function doesActiveOrderExist($orderId)
 function doesCompletedOrderExist($orderId)
 {
     return DB::run("SELECT EXISTS(SELECT * FROM `completed_order_of_products` WHERE `id` = ?)", [$orderId])->fetchColumn();
-}
-
-function doesOrderStatusExist($statusId)
-{
-
 }
 
 function isOrderNew($orderId)

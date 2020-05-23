@@ -20,14 +20,23 @@ button.product__add-btn {
 }
 
 .lastchance-btn {
-  &>a {
+  & > a {
     z-index: 20;
   }
 }
 .single-product {
-    .p-grid-2 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+  .p-grid-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+button.changeInput {
+  background-color: $orange;
+  display: block;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  font-size: 15px;
 }

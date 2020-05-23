@@ -238,7 +238,6 @@ $productListHtml .= '
         localStorage.removeItem("products");
         document.querySelector(".cart__erase").nextElementSibling.innerHTML = "";
         document.querySelector(".total-sum").textContent = "";
-        // shopLib.getCartAmount();
         (function getCartAmount() {
             let amount = 0;
             if (!localStorage.hasOwnProperty('products')) {

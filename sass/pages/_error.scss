@@ -28,7 +28,7 @@ $blue: #3498db;
   text-decoration: none;
   text-align: center;
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
 
   &:hover,
@@ -49,5 +49,22 @@ $blue: #3498db;
 
   &:hover {
     box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $blue;
+  }
+}
+
+div.error-wrapper {
+  min-width: 300px;
+  margin: 100px 10px 0px 10px;
+  .error-header {
+    color: #a94442;
+    padding: 10px;
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+  }
+  .error-message {
+    padding: 10px;
+    border-left: 1px solid #ebccd1;
+    border-right: 1px solid #ebccd1;
+    border-bottom: 1px solid #ebccd1;
   }
 }

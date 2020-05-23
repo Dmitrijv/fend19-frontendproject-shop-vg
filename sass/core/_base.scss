@@ -26,9 +26,15 @@ body {
   margin: 0;
 }
 
-a {
+a:not(.linkContainer a) {
+  color: unset;
   text-decoration: none;
-  color: inherit;
+}
+
+a:hover:not(.linkContainer a) {
+  color: unset;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .greenText {
@@ -71,7 +77,7 @@ a {
   }
 
   .panel-content {
-    padding: 10px 15px;
+    padding: 15px 10px;
   }
 
   .panel-footer {
