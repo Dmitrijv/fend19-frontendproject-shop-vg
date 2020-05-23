@@ -26,7 +26,8 @@ function isValidFormInputString($string)
 
 function generateRandomPassword($length)
 {
-    $length = ($length >= 16) ? $length : 16;
+    $length = ($length < 16) ? 16 : $length;
+    $length = ($length > 30) ? 30 : $length;
 
     $uletters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $lletters = 'abcdefghijklmnopqrstuvwxyz';
