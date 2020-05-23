@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (isset($_SESSION['userData'])) {
+    header("Location: user.php");
+    die;
+}
+
 ?>
 
 <!DOCTYPE html>
