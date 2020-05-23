@@ -43,15 +43,14 @@ session_start();
                         <label class="checkout-form__delivery-section__label" for="">E-post</label>
                         <input class="checkout-form__delivery-section__input" required id="email" type="email" name="email" placeholder="example@mail.com" maxlength=254>
 
-                        <label class="checkout-form__delivery-section__label">Lösenord</label>
+                        <label class="checkout-form__delivery-section__label">Lösenord <span class="pass-status"></span></label>
                         <ul>
-                            <li>minst 8 tecken totalt</li>
-                            <li>minst 1 stor bokstav</li>
-                            <li>minst 1 liten bokstav</li>
-                            <li>minst 1 siffra</li>
-                            <li>minst 1 special tecken (!-._@#$%^&*)</li>
+                            <li>minst 8 tecken totalt <span id="passLen"></span></li>
+                            <li>minst 1 stor bokstav <span id="passUpper"></span></li>
+                            <li>minst 1 liten bokstav <span id="passLower"></span></li>
+                            <li>minst 1 siffra <span id="passDigit"></span></li>
+                            <li>minst 1 special tecken (!-._@#$%^&*) <span id="passSpecial"></span></li>
                         </ul>
-                        <span class="pass-status"></span>
                         <input class="checkout-form__delivery-section__input" required id="pass" type="password" name="pass" minlenght=8 maxlength=20>
 
                         <label class="checkout-form__delivery-section__label">Bekräfta lösenordet <span class="passconfirm-status"></span></label>
