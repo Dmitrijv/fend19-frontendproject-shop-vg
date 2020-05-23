@@ -1,5 +1,14 @@
 <?php
 session_start();
+
+$defaultEmail = (isset($_SESSION['userData']["email"])) ? $_SESSION['userData']["email"] : "";
+$defaultFname = (isset($_SESSION['userData']["first_name"])) ? $_SESSION['userData']["first_name"] : "";
+$defaultLname = (isset($_SESSION['userData']["last_name"])) ? $_SESSION['userData']["last_name"] : "";
+$defaultPhonenum = (isset($_SESSION['userData']["phone"])) ? $_SESSION['userData']["phone"] : "";
+$defaultStreet = (isset($_SESSION['userData']["street"])) ? $_SESSION['userData']["street"] : "";
+$defaultPostal = (isset($_SESSION['userData']["postal_number"])) ? $_SESSION['userData']["postal_number"] : "";
+$defaultCounty = (isset($_SESSION['userData']["county"])) ? $_SESSION['userData']["county"] : "";
+
 ?>
 
 <!DOCTYPE html>
@@ -58,25 +67,25 @@ session_start();
                     <h2 class="checkout-form__delivery-section__h2">Fyll i kunduppgifter</h2>
 
                     <label class="checkout-form__delivery-section__label" for="">Email Adress</label>
-                    <input class="checkout-form__delivery-section__input" id="email" type="text" name="email" placeholder="name@mail.com" maxlength=254>
+                    <input class="checkout-form__delivery-section__input" id="email" type="text" value="<?php echo $defaultEmail; ?>" name="email" placeholder="name@mail.com" maxlength=254>
 
                     <label class="checkout-form__delivery-section__label" for="">Förnamn</label>
-                    <input class="checkout-form__delivery-section__input" id="fname" type="text" name="fname" maxlength=20>
+                    <input class="checkout-form__delivery-section__input" id="fname" type="text" value="<?php echo $defaultFname; ?>" name="fname" maxlength=20>
 
                     <label class="checkout-form__delivery-section__label" for="">Efternamn</label>
-                    <input class="checkout-form__delivery-section__input" id="lname" type="text" name="lname" maxlength=20>
+                    <input class="checkout-form__delivery-section__input" id="lname" type="text" value="<?php echo $defaultLname; ?>" name="lname" maxlength=20>
 
                     <label class="checkout-form__delivery-section__label" for="">Telefonnummer</label>
-                    <input class="checkout-form__delivery-section__input" id="tel" type="text" name="phone" placeholder="+46 or 07 pattern" maxlength=12>
+                    <input class="checkout-form__delivery-section__input" id="tel" type="text" value="<?php echo $defaultPhonenum; ?>" name="phone" placeholder="+46 or 07 pattern" maxlength=12>
 
                     <label class="checkout-form__delivery-section__label" for="">Gatuadress</label>
-                    <input class="checkout-form__delivery-section__input" id="adress" type="text" name="adress" placeholder="Gustafvägen 10D" maxlength=50>
+                    <input class="checkout-form__delivery-section__input" id="adress" type="text" value="<?php echo $defaultStreet; ?>" name="adress" placeholder="Gustafvägen 10D" maxlength=50>
 
                     <label class="checkout-form__delivery-section__label" for="">Postnummer</label>
-                    <input class="checkout-form__delivery-section__input" id="pcode" type="text" name="pcode" placeholder="123 45" maxlength=7>
+                    <input class="checkout-form__delivery-section__input" id="pcode" type="text" value="<?php echo $defaultPostal; ?>" name="pcode" placeholder="123 45" maxlength=7>
 
                     <label class="checkout-form__delivery-section__label" for="">Ort</label>
-                    <input class="checkout-form__delivery-section__input" id="city" type="text" name="county" maxlength=50>
+                    <input class="checkout-form__delivery-section__input" id="city" type="text" value="<?php echo $defaultCounty; ?>" name="county" maxlength=50>
 
                     <!-- this is filled from local storage with js -->
                     <input type="hidden" name="shoppingCart" value="">
