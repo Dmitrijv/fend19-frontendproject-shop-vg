@@ -1,5 +1,4 @@
 div.user-content {
-  //   max-width: 290px;
   display: grid;
   grid-template-areas:
     "userDetails"
@@ -20,6 +19,16 @@ div.user-content {
     text-align: center;
   }
 
+  div#edit-user-div {
+    background: #f9f9f9;
+  }
+
+  .checkout-form__delivery-section {
+    margin: 0px;
+    padding: 0px;
+    background-color: #f9f9f9;
+  }
+
   p,
   a,
   span,
@@ -35,6 +44,19 @@ div.user-content {
 div.user-content div.change-btn-container {
   padding: 0 15px 15px;
   width: 100%;
+}
+
+div.user-content button.save-user-btn {
+  background-color: #218838;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+div.user-content button.cancel-edit-btn {
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 div.user-content button.changeInput {

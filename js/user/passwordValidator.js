@@ -11,6 +11,7 @@
 
   const passField = document.querySelector("input#pass");
   const passConfirmField = document.querySelector("input#passconfirm");
+
   const passStatusSpan = document.querySelector("span.pass-status");
   const passConfirmStatusSpan = document.querySelector("span.passconfirm-status");
 
