@@ -124,7 +124,7 @@ $productListHtml .= '
             <!-- CONTENT area begins -->
             <section class="order-confirmation white-panel">
 
-                <div class="panel-heading">Faktura</div>
+                <div class="panel-heading">Order Information</div>
 
                 <div class="order-description">
                     <dl>

@@ -186,6 +186,10 @@ table.db-table td.actionCell {
   min-width: 135px;
 }
 
+table.db-table thead > tr {
+  background-color: #f9f9f9;
+}
+
 table.db-table tr > td {
   text-align: center;
   padding: 8px;
@@ -197,7 +201,7 @@ table.db-table tr > th {
   border: 1px solid #ddd;
 }
 
-table.db-table tr:nth-of-type(odd) {
+table.db-table tr:nth-of-type(even) {
   background-color: #f9f9f9;
 }
 
