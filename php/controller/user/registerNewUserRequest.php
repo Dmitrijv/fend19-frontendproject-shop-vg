@@ -16,6 +16,20 @@ $customerData = [
     "county" => trimSides($_POST['county']),
 ];
 
+// doublecheck form input validity in case front-end validation failed
+if (
+    !isValidFormInputString($customerData['email']) ||
+    !isValidFormInputString($customerData['first_name']) ||
+    !isValidFormInputString($customerData['last_name']) ||
+    !isValidFormInputString($customerData['phone']) ||
+    !isValidFormInputString($customerData['street']) ||
+    !isValidFormInputString($customerData['postal_number']) ||
+    !isValidFormInputString($customerData['county'])
+) {
+    header("Location: error.php?errorMessage=Ogiltigt input i formuläret.");
+    die;
+}
+
 $customerDataId = md5(
     $customerData['email'] .
     $customerData['first_name'] .

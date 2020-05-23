@@ -131,7 +131,7 @@ button.changeInput {
 }
 
 table:not(.db-table) {
-  margin: 2rem 5vw;
+  margin: 1rem 5vw;
   border-collapse: collapse;
 }
 
@@ -2676,7 +2676,8 @@ div.product > div > button:nth-child(4) {
 section.order-confirmation {
   overflow: hidden;
   font-size: 16px;
-  margin: 5vh 40px;
+  margin: 4vh 10px;
+  max-width: 1200px;
   /* remove table to a separate scss file now */
 }
 
@@ -2711,6 +2712,7 @@ section.order-confirmation .order-description h2 {
 
 section.order-confirmation .order-description dl {
   max-width: 500px;
+  margin-bottom: 0px;
 }
 
 section.order-confirmation .order-description dl > * {

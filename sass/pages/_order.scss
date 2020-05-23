@@ -40,7 +40,8 @@
 section.order-confirmation {
   overflow: hidden;
   font-size: 16px;
-  margin: 5vh 40px;
+  margin: 4vh 10px;
+  max-width: 1200px;
 
   .panel-heading {
     text-align: center;
@@ -72,6 +73,7 @@ section.order-confirmation {
 
     dl {
       max-width: 500px;
+      margin-bottom: 0px;
     }
 
     dl > * {

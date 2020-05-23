@@ -58,7 +58,7 @@ if (
     strlen($customerData['email']) > 254 ||
     strlen($customerData['first_name']) > 20 ||
     strlen($customerData['last_name']) > 20 ||
-    strlen($customerData['phone']) > 12 ||
+    strlen($customerData['phone']) > 13 ||
     strlen($customerData['street']) > 50 ||
     strlen($customerData['postal_number']) > 6 ||
     strlen($customerData['county']) > 50

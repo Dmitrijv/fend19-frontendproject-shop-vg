@@ -50,6 +50,7 @@ foreach ($completedOrders as &$order) {
 
 // hide empty order list message if there are more than 0 orders
 $orderListMsgClassList = ((count($activeOrders) + count($completedOrders)) > 0) ? "hidden" : "";
+$orderTableClassList = ((count($activeOrders) + count($completedOrders)) == 0) ? "hidden" : "";
 
 ?>
 
@@ -103,13 +104,13 @@ $orderListMsgClassList = ((count($activeOrders) + count($completedOrders)) > 0) 
                     <div class="panel-heading">Dina beställningar</div>
                     <div class="panel-content" >
                         <h2 class="empty-order-list-message <?php echo $orderListMsgClassList; ?>" >Du har inte gjort några köp än.</h2>
-                        <table class="db-table category-table">
+                        <table class="db-table category-table <?php echo $orderTableClassList; ?>">
                             <thead>
                                 <tr>
-                                    <th>Ordernr</th>
+                                    <th>#</th>
                                     <th>Status</th>
                                     <th>Datum</th>
-                                    <th>Ordervärde</th>
+                                    <th>Värde</th>
                                 </tr>
                             </thead>
                             <tbody id="userOrdersTableBody">
