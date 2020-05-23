@@ -7,6 +7,7 @@ require_once __DIR__ . "/php/controller/controller.php";
 // invalid request
 if (
     !isset($_SESSION['userData'])
+    || !isset($_SESSION['userData']['user_id'])
     || !isset($_GET['orderId'])
     || !is_numeric($_GET['orderId'])
     || !isset($_GET['orderStatus'])
@@ -20,6 +21,14 @@ $orderId = intval($_GET['orderId']);
 $statusId = intval($_GET['orderStatus']);
 
 $order = getOrderByIdAndStatus($orderId, $statusId);
+
+// missing order
+if (
+    !isset($order)
+) {
+    header("Location: error.php?errorMessage=Kunde inte visa fakturan.</br>Detta kan bero på att ordern inte finns eller att du inte har rättigheter att se ordern.</br>Logga in på kontot som ordern tillhör och försök igen.");
+    die;
+}
 
 // requesting restricted information
 $isEligible = isset($order) && (intval($_SESSION['userData']['user_id']) == $order['user_id'] || $_SESSION['userData']['user_id'] == $order['customer_data_id']);

@@ -45,13 +45,13 @@ session_start();
 
                         <label class="checkout-form__delivery-section__label">Lösenord <span class="pass-status"></span></label>
                         <ul>
-                            <li>minst 8 tecken totalt <span id="passLen"></span></li>
+                            <li>minst 10 tecken totalt <span id="passLen"></span></li>
                             <li>minst 1 stor bokstav <span id="passUpper"></span></li>
                             <li>minst 1 liten bokstav <span id="passLower"></span></li>
                             <li>minst 1 siffra <span id="passDigit"></span></li>
                             <li>minst 1 special tecken (!-._@#$%^&*) <span id="passSpecial"></span></li>
                         </ul>
-                        <input class="checkout-form__delivery-section__input" required id="pass" type="password" name="pass" minlenght=8 maxlength=20>
+                        <input class="checkout-form__delivery-section__input" required id="pass" type="password" name="pass" minlenght=10 maxlength=30>
 
                         <label class="checkout-form__delivery-section__label">Bekräfta lösenordet <span class="passconfirm-status"></span></label>
                         <input class="checkout-form__delivery-section__input" required id="passconfirm" type="password" name="passconfirm" minlenght=8 maxlength=30>

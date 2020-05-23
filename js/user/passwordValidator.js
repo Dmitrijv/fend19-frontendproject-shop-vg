@@ -1,9 +1,9 @@
 (function() {
   const strongPassRegex = new RegExp(
-    "^(((?=.*[a-z])(?=.*[A-Z]))((?=.*[A-Z])(?=.*[0-9])))(?=.*[!-._@#$%^&*]{1,})(?=.{8,})"
+    "^(((?=.*[a-z])(?=.*[A-Z]))((?=.*[A-Z])(?=.*[0-9])))(?=.*[!-._@#$%^&*]{1,})(?=.{10,})"
   );
 
-  const lengthRegex = new RegExp(".{8}");
+  const lengthRegex = new RegExp(".{10}");
   const upperCaseRegex = new RegExp("[A-Z]");
   const lowerCaseRegex = new RegExp("[a-z]");
   const digitRegex = new RegExp("[0-9]");
