@@ -29,7 +29,7 @@ $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
 $to = $email;
 $subject = "FrameMe - Återställning av löseordet.";
-$message = 'Hej!</br> Ditt nya lösenord är <b>' . $newPassword . '</b></br>Vänliga Hälsningar</br>FramMe Support';
+$message = 'Hej!</br> Ditt nya lösenord är <b>' . $newPassword . '</b></br></br>Vänliga Hälsningar</br></br>FramMe Support';
 $header = "From:frameme@noreply.se \r\n";
 $header .= "Cc:framemesupport@noreply.se \r\n";
 $header .= "MIME-Version: 1.0\r\n";
@@ -42,4 +42,5 @@ if (!$mailSent) {
     die;
 }
 
+setUserPassword($user_id, $hashedPassword);
 die;

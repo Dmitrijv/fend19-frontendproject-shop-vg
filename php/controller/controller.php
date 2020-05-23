@@ -326,3 +326,8 @@ function getProductsByOrderIdAndStatus($orderId, $statusId)
     }
     return $response;
 }
+
+function setUserPassword($user_id, $newPassword)
+{
+    DB::run("UPDATE user SET password=? WHERE id=?", [$newPassword, $user_id]);
+}
