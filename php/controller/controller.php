@@ -2,6 +2,11 @@
 
 require_once __DIR__ . "/../model/db.php";
 
+ini_set('SMTP', "cpsrv48.misshosting.com");
+ini_set('smtp_port', "465");
+ini_set('sendmail_from', "frameme@noreply.se");
+ini_set('sendmail_path', "/usr/sbin/sendmail");
+
 function doesProductIdExist($productId)
 {
     return DB::run("SELECT EXISTS(SELECT * FROM product WHERE id = ?)", [$productId])->fetchColumn();
@@ -168,6 +173,11 @@ function isEmailRegistered($email)
     return DB::run("SELECT EXISTS(SELECT * FROM user WHERE email = ?)", [$email])->fetchColumn();
 }
 
+function getUserIdByEmail($email)
+{
+    return DB::run("SELECT id FROM user WHERE email = ?", [$email])->fetchColumn();
+}
+
 function isCorrectPassword($password, $email)
 {
     $storedHash = DB::run("SELECT password FROM user WHERE email = ?", [$email])->fetchColumn();
@@ -210,7 +220,7 @@ function getActiveUserOrders($user_id, $customer_data_id)
         GROUP BY
             active_order_of_products.id
         ORDER BY
-            active_order_of_products.status ASC
+            date_ordered_at DESC
     ", [$user_id, $customer_data_id]);
     $response = [];
     while ($tableRow = $stmt->fetch(PDO::FETCH_LAZY)) {

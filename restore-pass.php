@@ -38,20 +38,21 @@ if (isset($_SESSION['userData'])) {
 
             <div class='login-error hidden'>E-post adressen är inte registrerad.</div>
 
-            <form onsubmit="shopLib.login(event)" method="POST" class="checkout-form">
+            <form onsubmit="shopLib.restorePassword(event)" method="POST" class="checkout-form">
 
             <!-- Left side, delivery section -->
             <div class="checkout-form__container">
                 <section class="checkout-form__delivery-section">
 
-                    <h2 class="checkout-form__delivery-section__h2">Logga in</h2>
+                    <h2 class="checkout-form__delivery-section__h2">Återställ lösenordet</h2>
 
                     <label class="checkout-form__delivery-section__label">E-post</label>
                     <input class="checkout-form__delivery-section__input" id="email" type="email" name="email" maxlength=254>
 
-                    <div id="login-error-msg" class="redText"></div>
+                    <div id="restorepass-success-msg" class="greenText"></div>
+                    <div id="restorepass-error-msg" class="redText"></div>
 
-                    <button type="submit" class="checkout-form__delivery-section__deliveryBtn">Återställ lösenord</button>
+                    <button type="submit" class="checkout-form__delivery-section__deliveryBtn">Återställ lösenordet</button>
 
                 </section>
             </form>

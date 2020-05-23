@@ -402,6 +402,41 @@ shopLib = (function() {
       }
     },
 
+    restorePassword: function(event) {
+      const form = event.currentTarget;
+      const formData = new FormData(form);
+      const success = document.querySelector("#restorepass-success-msg");
+      const error = document.querySelector("#restorepass-error-msg");
+      const xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        error.textContent = "";
+        success.textContent = "";
+        if (this.readyState == 4 && this.status == 200) {
+          completePasswordRequest("Ditt nya lösenord har skickats.");
+        } else if (this.readyState == 4 && this.status == 406) {
+          abortPasswordRequest("Kunde inte skicka ett medelande.");
+          return;
+        } else if (this.readyState == 4 && this.status == 400) {
+          abortPasswordRequest("Angivet e-post är inte registrerat.");
+          return;
+        }
+      };
+
+      xmlhttp.open("POST", `${CONTROLLER_PATH}/user/restorePasswordRequest.php`);
+      xmlhttp.send(formData);
+      event.preventDefault();
+
+      function completePasswordRequest(message) {
+        success.textContent = message;
+        event.preventDefault();
+      }
+
+      function abortPasswordRequest(message) {
+        error.textContent = message;
+        event.preventDefault();
+      }
+    },
+
     isStrongPassword: function(string) {
       const passwordRegex = new RegExp(
         "^(((?=.*[a-z])(?=.*[A-Z]))((?=.*[A-Z])(?=.*[0-9])))(?=.*[!-._@#$%^&*]{1,})(?=.{8,})"

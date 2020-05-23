@@ -52,6 +52,8 @@ if (isset($_SESSION['userData'])) {
                     <label class="checkout-form__delivery-section__label">Lösenord</label>
                     <input class="checkout-form__delivery-section__input" id="pass" type="password" name="pass" maxlength=30>
 
+                    <p><a href="restore-pass.php" >Glömt lösenordet? Återställ den här.</a></p>
+
                     <div id="login-error-msg" class="redText"></div>
 
                     <button type="submit" class="checkout-form__delivery-section__deliveryBtn">logga in</button>
