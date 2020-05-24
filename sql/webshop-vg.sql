@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2020 at 02:42 PM
+-- Generation Time: May 23, 2020 at 09:23 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `webshop`
+-- Database: `jbiizejj_webshop`
 --
 
 -- --------------------------------------------------------
@@ -33,48 +33,56 @@ CREATE TABLE `active_order_of_products` (
   `date_ordered_at` datetime NOT NULL,
   `status` int(11) NOT NULL,
   `customer_data_id` varchar(32) NOT NULL,
-  `free_shipping` tinyint(1) NOT NULL DEFAULT 0
+  `free_shipping` tinyint(1) NOT NULL DEFAULT 0,
+  `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `active_order_of_products`
 --
 
-INSERT INTO `active_order_of_products` (`id`, `date_ordered_at`, `status`, `customer_data_id`, `free_shipping`) VALUES
-(11, '2020-04-29 19:18:10', 1, '944cfba9624a1bc8ce6075f0e3eb153b', 1),
-(12, '2020-04-29 19:19:53', 1, '944cfba9624a1bc8ce6075f0e3eb153b', 1),
-(13, '2020-04-29 19:21:06', 2, '944cfba9624a1bc8ce6075f0e3eb153b', 1),
-(14, '2020-04-29 19:23:22', 1, '944cfba9624a1bc8ce6075f0e3eb153b', 1),
-(15, '2020-04-29 19:24:09', 2, '944cfba9624a1bc8ce6075f0e3eb153b', 1),
-(16, '2020-04-29 19:50:59', 1, '944cfba9624a1bc8ce6075f0e3eb153b', 1),
-(18, '2020-04-29 19:59:52', 1, '944cfba9624a1bc8ce6075f0e3eb153b', 1),
-(19, '2020-04-29 20:00:10', 1, '944cfba9624a1bc8ce6075f0e3eb153b', 1),
-(20, '2020-04-29 21:35:55', 2, 'f80c2a7db8b9d8b577a30dcd82f79f5c', 1),
-(21, '2020-04-29 21:45:54', 2, 'bebc504d09417ac4b773c5dd790020f8', 1),
-(23, '2020-04-30 11:38:28', 2, '4aa256929e8b5a020a811dc8466a9dec', 1),
-(24, '2020-04-30 22:41:33', 1, 'e5c61cfa480ca6ce8e99048c5df746d5', 0),
-(25, '2020-04-30 22:44:47', 1, 'de7005d0b36832d1071d3972366fe1c3', 1),
-(26, '2020-04-30 22:55:19', 1, '944cfba9624a1bc8ce6075f0e3eb153b', 1),
-(27, '2020-05-01 12:11:43', 1, '4ed26ab9cf6dffce6e6019a39b61889f', 1),
-(28, '2020-05-02 14:35:16', 1, 'cbbc8fd5c48b0ab9532e8b775175f745', 0),
-(30, '2020-05-02 15:16:22', 1, '5ca3fd495fcd290573855f2a3417f3e1', 1),
-(31, '2020-05-02 15:17:09', 1, '4a995b336c8ac19b6049972fd4d8d2be', 1),
-(32, '2020-05-02 15:17:26', 2, 'f7711dd6f98dc16205a89813b6ac37fd', 1),
-(33, '2020-05-02 15:17:53', 1, '1e75e5a214e6c8516242c43cd0ffdf27', 1),
-(34, '2020-05-02 15:18:35', 1, '9fa5f2daf1c3ecfc5e8cac1640ea994c', 1),
-(36, '2020-05-02 15:20:10', 1, '5094749814d5f4b8311de4de7f4062d0', 1),
-(37, '2020-05-03 17:59:58', 2, '3ad5e1abfc0071a262ccdf4d1194550d', 1),
-(38, '2020-05-04 11:16:05', 1, 'f7711dd6f98dc16205a89813b6ac37fd', 0),
-(39, '2020-05-04 11:36:38', 1, 'e875d112d9ac8071139bf1aee148e108', 1),
-(40, '2020-05-04 11:39:48', 1, '3ad5e1abfc0071a262ccdf4d1194550d', 1),
-(41, '2020-05-04 11:41:50', 2, '4aa256929e8b5a020a811dc8466a9dec', 1),
-(42, '2020-05-04 11:42:26', 1, '365ee95800b5884229c5c930d194d2cd', 0),
-(47, '2020-05-04 14:11:57', 1, '3ad5e1abfc0071a262ccdf4d1194550d', 1),
-(48, '2020-05-08 10:34:45', 1, 'f7711dd6f98dc16205a89813b6ac37fd', 0),
-(49, '2020-05-08 10:40:50', 1, 'f7711dd6f98dc16205a89813b6ac37fd', 0),
-(50, '2020-05-08 10:41:49', 1, '228c403b2aeba85d0c242d669beee48d', 1),
-(52, '2020-05-08 14:51:00', 1, 'f013129a2d14ab0eedbfe8b35f5bb436', 1),
-(53, '2020-05-08 22:01:28', 1, 'f7711dd6f98dc16205a89813b6ac37fd', 1);
+INSERT INTO `active_order_of_products` (`id`, `date_ordered_at`, `status`, `customer_data_id`, `free_shipping`, `user_id`) VALUES
+(11, '2020-04-29 19:18:10', 1, '944cfba9624a1bc8ce6075f0e3eb153b', 1, 0),
+(12, '2020-04-29 19:19:53', 1, '944cfba9624a1bc8ce6075f0e3eb153b', 1, 0),
+(13, '2020-04-29 19:21:06', 2, '944cfba9624a1bc8ce6075f0e3eb153b', 1, 0),
+(14, '2020-04-29 19:23:22', 1, '944cfba9624a1bc8ce6075f0e3eb153b', 1, 0),
+(15, '2020-04-29 19:24:09', 2, '944cfba9624a1bc8ce6075f0e3eb153b', 1, 0),
+(16, '2020-04-29 19:50:59', 1, '944cfba9624a1bc8ce6075f0e3eb153b', 1, 0),
+(18, '2020-04-29 19:59:52', 1, '944cfba9624a1bc8ce6075f0e3eb153b', 1, 0),
+(19, '2020-04-29 20:00:10', 1, '944cfba9624a1bc8ce6075f0e3eb153b', 1, 0),
+(20, '2020-04-29 21:35:55', 2, 'f80c2a7db8b9d8b577a30dcd82f79f5c', 1, 0),
+(21, '2020-04-29 21:45:54', 2, 'bebc504d09417ac4b773c5dd790020f8', 1, 0),
+(23, '2020-04-30 11:38:28', 2, '4aa256929e8b5a020a811dc8466a9dec', 1, 0),
+(24, '2020-04-30 22:41:33', 1, 'e5c61cfa480ca6ce8e99048c5df746d5', 0, 0),
+(25, '2020-04-30 22:44:47', 1, 'de7005d0b36832d1071d3972366fe1c3', 1, 0),
+(26, '2020-04-30 22:55:19', 1, '944cfba9624a1bc8ce6075f0e3eb153b', 1, 0),
+(27, '2020-05-01 12:11:43', 1, '4ed26ab9cf6dffce6e6019a39b61889f', 1, 0),
+(28, '2020-05-02 14:35:16', 1, 'cbbc8fd5c48b0ab9532e8b775175f745', 0, 0),
+(30, '2020-05-02 15:16:22', 1, '5ca3fd495fcd290573855f2a3417f3e1', 1, 0),
+(31, '2020-05-02 15:17:09', 1, '4a995b336c8ac19b6049972fd4d8d2be', 1, 0),
+(32, '2020-05-02 15:17:26', 2, 'f7711dd6f98dc16205a89813b6ac37fd', 1, 0),
+(33, '2020-05-02 15:17:53', 1, '1e75e5a214e6c8516242c43cd0ffdf27', 1, 0),
+(34, '2020-05-02 15:18:35', 1, '9fa5f2daf1c3ecfc5e8cac1640ea994c', 1, 0),
+(36, '2020-05-02 15:20:10', 1, '5094749814d5f4b8311de4de7f4062d0', 1, 0),
+(37, '2020-05-03 17:59:58', 2, '3ad5e1abfc0071a262ccdf4d1194550d', 1, 0),
+(38, '2020-05-04 11:16:05', 1, 'f7711dd6f98dc16205a89813b6ac37fd', 0, 0),
+(39, '2020-05-04 11:36:38', 1, 'e875d112d9ac8071139bf1aee148e108', 1, 0),
+(40, '2020-05-04 11:39:48', 1, '3ad5e1abfc0071a262ccdf4d1194550d', 1, 0),
+(41, '2020-05-04 11:41:50', 2, '4aa256929e8b5a020a811dc8466a9dec', 1, 0),
+(42, '2020-05-04 11:42:26', 1, '365ee95800b5884229c5c930d194d2cd', 0, 0),
+(47, '2020-05-04 14:11:57', 1, '3ad5e1abfc0071a262ccdf4d1194550d', 1, 0),
+(48, '2020-05-08 10:34:45', 1, 'f7711dd6f98dc16205a89813b6ac37fd', 0, 0),
+(49, '2020-05-08 10:40:50', 1, 'f7711dd6f98dc16205a89813b6ac37fd', 0, 0),
+(50, '2020-05-08 10:41:49', 1, '228c403b2aeba85d0c242d669beee48d', 1, 0),
+(52, '2020-05-08 14:51:00', 1, 'f013129a2d14ab0eedbfe8b35f5bb436', 1, 0),
+(53, '2020-05-08 22:01:28', 1, 'f7711dd6f98dc16205a89813b6ac37fd', 1, 0),
+(56, '2020-05-22 21:55:08', 1, 'f7711dd6f98dc16205a89813b6ac37fd', 0, 0),
+(57, '2020-05-22 23:44:03', 1, 'f7711dd6f98dc16205a89813b6ac37fd', 1, 2),
+(58, '2020-05-23 00:01:51', 2, 'f7711dd6f98dc16205a89813b6ac37fd', 1, 2),
+(60, '2020-05-23 12:12:41', 1, 'e30e5ac0d19269df74b91c2c3c3ca079', 1, 2),
+(61, '2020-05-23 15:49:48', 1, 'e30e5ac0d19269df74b91c2c3c3ca079', 1, 2),
+(62, '2020-05-23 15:50:05', 1, 'e30e5ac0d19269df74b91c2c3c3ca079', 1, 2),
+(63, '2020-05-23 16:41:25', 1, 'e30e5ac0d19269df74b91c2c3c3ca079', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -87,20 +95,24 @@ CREATE TABLE `completed_order_of_products` (
   `date_ordered_at` datetime NOT NULL,
   `status` int(11) NOT NULL,
   `customer_data_id` varchar(32) NOT NULL,
-  `free_shipping` tinyint(1) NOT NULL DEFAULT 0
+  `free_shipping` tinyint(1) NOT NULL DEFAULT 0,
+  `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `completed_order_of_products`
 --
 
-INSERT INTO `completed_order_of_products` (`id`, `date_ordered_at`, `status`, `customer_data_id`, `free_shipping`) VALUES
-(35, '2020-05-02 15:19:51', 3, '5094749814d5f4b8311de4de7f4062d0', 1),
-(43, '2020-05-04 11:44:55', 3, 'de7005d0b36832d1071d3972366fe1c3', 1),
-(44, '2020-05-04 12:14:07', 3, '4aa256929e8b5a020a811dc8466a9dec', 1),
-(45, '2020-05-04 12:15:29', 3, 'de7005d0b36832d1071d3972366fe1c3', 1),
-(46, '2020-05-04 12:21:08', 3, 'e93c98d10a3307f13b2121a8be7637e3', 1),
-(51, '2020-05-08 10:45:07', 3, 'f7711dd6f98dc16205a89813b6ac37fd', 1);
+INSERT INTO `completed_order_of_products` (`id`, `date_ordered_at`, `status`, `customer_data_id`, `free_shipping`, `user_id`) VALUES
+(35, '2020-05-02 15:19:51', 3, '5094749814d5f4b8311de4de7f4062d0', 1, 0),
+(43, '2020-05-04 11:44:55', 3, 'de7005d0b36832d1071d3972366fe1c3', 1, 0),
+(44, '2020-05-04 12:14:07', 3, '4aa256929e8b5a020a811dc8466a9dec', 1, 0),
+(45, '2020-05-04 12:15:29', 3, 'de7005d0b36832d1071d3972366fe1c3', 1, 0),
+(46, '2020-05-04 12:21:08', 3, 'e93c98d10a3307f13b2121a8be7637e3', 1, 0),
+(51, '2020-05-08 10:45:07', 3, 'f7711dd6f98dc16205a89813b6ac37fd', 1, 0),
+(54, '2020-05-12 15:46:18', 3, 'f7711dd6f98dc16205a89813b6ac37fd', 1, 0),
+(55, '2020-05-22 21:48:45', 3, 'f7711dd6f98dc16205a89813b6ac37fd', 1, 2),
+(59, '2020-05-23 00:05:50', 3, 'f7711dd6f98dc16205a89813b6ac37fd', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -142,6 +154,7 @@ CREATE TABLE `customer_data` (
 --
 
 INSERT INTO `customer_data` (`id`, `email`, `phone`, `first_name`, `last_name`, `street`, `postal_number`, `county`) VALUES
+('04f85704daba09249b50beb642df7522', 'dmitrij.vel2@live.se', '0734434305', 'Dzmitry', 'Ramirez', 'Storgatan 1', '332 12', 'Stockholm'),
 ('1e75e5a214e6c8516242c43cd0ffdf27', 'hello@gmail.com', '0734434305', 'Anna Maria', 'Ramirez', 'Storgatan 1', '332 12', 'Mora'),
 ('228c403b2aeba85d0c242d669beee48d', 'hello2@gmail.com', '0734434305', 'Anna Maria', 'Ramirez', 'Svea Vägen 16', '332 12', 'Stockholm'),
 ('3454b5836f09f76da144e5c72100d0cc', 'hello@gmail.com', '0734434305', 'Dzmitry', 'Velström', 'Svea Vägen 16', '332 12', 'Stockholm'),
@@ -157,7 +170,9 @@ INSERT INTO `customer_data` (`id`, `email`, `phone`, `first_name`, `last_name`, 
 ('bebc504d09417ac4b773c5dd790020f8', 'hello@gmail.com', '07344343054', 'John', 'Doe', 'Dugatan 12', '332 12', 'Stockholm'),
 ('cbbc8fd5c48b0ab9532e8b775175f745', 'hello2@gmail.com', '0734434305', 'John', 'Doe', 'Svea Vägen 16', '332 12', 'Stockholm'),
 ('de7005d0b36832d1071d3972366fe1c3', 'hello@gmail.com', '0734434305', 'Anna Maria', 'Ramirez', 'Svea Vägen 16', '332 12', 'Stockholm'),
+('e30e5ac0d19269df74b91c2c3c3ca079', 'dmitrij.vel@live.se', '0734434305', 'Dzmitry', 'Velström', 'Storgatan 1', '332 12', 'Stockholm'),
 ('e5c61cfa480ca6ce8e99048c5df746d5', 'hello2@gmail.com', '0734434305', 'Anna Maria', 'Ramirez', 'SveaVägen 16', '332 12', 'Stockholm'),
+('e7c4dbe12f8203086df79feb502a5520', 'dmitrij.vel@live.se', '0734434305', 'Dzmitry', 'Ramirez', 'Storgatan 1', '332 12', 'Stockholm'),
 ('e875d112d9ac8071139bf1aee148e108', 'timber@gmail.com', '0742234534', 'Kider', 'Homster', 'Hellogatan 12', '154 44', 'Stockholm'),
 ('e93c98d10a3307f13b2121a8be7637e3', '234324@wadawd.com', '0734434305', 'Anna Maria', 'Ramirez', 'Storgatan 1', '332 12', 'Bogte'),
 ('f013129a2d14ab0eedbfe8b35f5bb436', 'hello@gmail.com', '0734434305', 'John', 'Doe', 'Storgatan 1', '332 12', 'Stockholm'),
@@ -196,7 +211,11 @@ INSERT INTO `delivered_product` (`product_id`, `order_id`, `price`, `quantity`, 
 (56, 43, 450, 1, 'SEK'),
 (59, 43, 5400, 1, 'SEK'),
 (64, 51, 500, 2, 'SEK'),
-(61, 51, 700, 2, 'SEK');
+(61, 51, 700, 2, 'SEK'),
+(68, 54, 500, 1, 'SEK'),
+(56, 55, 450, 1, 'SEK'),
+(57, 55, 90, 1, 'SEK'),
+(59, 59, 5400, 1, 'SEK');
 
 -- --------------------------------------------------------
 
@@ -312,7 +331,15 @@ INSERT INTO `ordered_product` (`product_id`, `order_id`, `price`, `quantity`, `c
 (57, 50, 90, 1, 'SEK'),
 (56, 50, 450, 1, 'SEK'),
 (61, 52, 700, 1, 'SEK'),
-(68, 53, 500, 1, 'SEK');
+(68, 53, 500, 1, 'SEK'),
+(58, 56, 360, 1, 'SEK'),
+(61, 57, 700, 1, 'SEK'),
+(61, 58, 700, 1, 'SEK'),
+(57, 60, 90, 1, 'SEK'),
+(56, 60, 450, 1, 'SEK'),
+(64, 61, 500, 1, 'SEK'),
+(63, 62, 1000, 1, 'SEK'),
+(63, 63, 1000, 1, 'SEK');
 
 -- --------------------------------------------------------
 
@@ -385,19 +412,19 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `title`, `description`, `category_id`, `number_in_stock`) VALUES
-(56, 'Spike', 'In vitae ultricies turpis. Aliquam volutpat diam sapien, in sagittis risus porttitor quis. Aliquam eu risus vel nunc tristique euismod sit amet sed lectus. Aenean sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum. Quisque dolor lorem, tempor sit amet fermentum vel, vestibulum sed ligula. Suspendisse laoreet faucibus sem, fringilla rhoncus odio fermentum at. Aenean imperdiet egestas risus nec posuere. Vivamus fermentum dictum urna a ornare.', 4, 3),
-(57, 'Palm', 'Aenean sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum. Quisque dolor lorem, tempor sit amet fermentum vel, vestibulum sed ligula. Suspendisse laoreet faucibus sem, fringilla rhoncus odio fermentum at. Aenean imperdiet egestas risus nec posuere. Vivamus fermentum dictum urna a ornare.', 4, 3),
-(58, 'Nature', 'Quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum. Quisque dolor lorem, tempor sit amet fermentum vel, vestibulum sed ligula. Suspendisse laoreet faucibus sem, fringilla rhoncus odio fermentum at. Aenean imperdiet egestas risus nec posuere. Vivamus fermentum dictum urna a ornare.', 1, 3),
-(59, 'Battle', 'Volutpat diam sapien, in sagittis risus porttitor quis. Aliquam eu risus vel nunc tristique euismod sit amet sed lectus. Aenean sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum. Quisque dolor lorem, tempor sit amet fermentum vel, vestibulum sed ligula. Suspendisse laoreet faucibus sem, fringilla rhoncus odio fermentum at. Aenean imperdiet egestas risus nec posuere. Vivamus fermentum dictum urna a ornare.', 32, 4),
+(56, 'Spike', 'In vitae ultricies turpis. Aliquam volutpat diam sapien, in sagittis risus porttitor quis. Aliquam eu risus vel nunc tristique euismod sit amet sed lectus. Aenean sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum. Quisque dolor lorem, tempor sit amet fermentum vel, vestibulum sed ligula. Suspendisse laoreet faucibus sem, fringilla rhoncus odio fermentum at. Aenean imperdiet egestas risus nec posuere. Vivamus fermentum dictum urna a ornare.', 4, 1),
+(57, 'Palm', 'Aenean sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum. Quisque dolor lorem, tempor sit amet fermentum vel, vestibulum sed ligula. Suspendisse laoreet faucibus sem, fringilla rhoncus odio fermentum at. Aenean imperdiet egestas risus nec posuere. Vivamus fermentum dictum urna a ornare.', 4, 1),
+(58, 'Nature', 'Quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum. Quisque dolor lorem, tempor sit amet fermentum vel, vestibulum sed ligula. Suspendisse laoreet faucibus sem, fringilla rhoncus odio fermentum at. Aenean imperdiet egestas risus nec posuere. Vivamus fermentum dictum urna a ornare.', 1, 2),
+(59, 'Battle', 'Volutpat diam sapien, in sagittis risus porttitor quis. Aliquam eu risus vel nunc tristique euismod sit amet sed lectus. Aenean sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum. Quisque dolor lorem, tempor sit amet fermentum vel, vestibulum sed ligula. Suspendisse laoreet faucibus sem, fringilla rhoncus odio fermentum at. Aenean imperdiet egestas risus nec posuere. Vivamus fermentum dictum urna a ornare.', 32, 3),
 (60, 'Tiger', 'Feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum. Quisque dolor lorem, tempor sit amet fermentum vel, vestibulum sed ligula. Suspendisse laoreet faucibus sem, fringilla rhoncus odio fermentum at. Aenean imperdiet egestas risus nec posuere. Vivamus fermentum dictum urna a ornare.', 32, 3),
-(61, 'Oblivion', 'Quisque dolor lorem, tempor sit amet fermentum vel, vestibulum sed ligula. Suspendisse laoreet faucibus sem, fringilla rhoncus odio fermentum at. Aenean imperdiet egestas risus nec posuere. Vivamus fermentum dictum urna a ornare. In vitae ultricies turpis. Aliquam volutpat diam sapien, in sagittis risus porttitor quis. Aliquam eu risus vel nunc tristique euismod sit amet sed lectus. Aenean sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum.', 1, 9),
+(61, 'Oblivion', 'Quisque dolor lorem, tempor sit amet fermentum vel, vestibulum sed ligula. Suspendisse laoreet faucibus sem, fringilla rhoncus odio fermentum at. Aenean imperdiet egestas risus nec posuere. Vivamus fermentum dictum urna a ornare. In vitae ultricies turpis. Aliquam volutpat diam sapien, in sagittis risus porttitor quis. Aliquam eu risus vel nunc tristique euismod sit amet sed lectus. Aenean sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum.', 1, 7),
 (62, 'Hera', 'Ultricies turpis. Aliquam volutpat diam sapien, in sagittis risus porttitor quis. Aliquam eu risus vel nunc tristique euismod sit amet sed lectus. Aenean sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum.', 36, 3),
-(63, 'Horse', 'Sed lectus. Aenean sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum.', 32, 37),
-(64, 'Elephant Love', 'Sed lectus. Aenean sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum. Sed lectus. Aenean sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum.', 32, 8),
+(63, 'Horse', 'Sed lectus. Aenean sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum.', 32, 35),
+(64, 'Elephant Love', 'Sed lectus. Aenean sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum. Sed lectus. Aenean sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum.', 32, 7),
 (65, 'Statement', 'Sed lectus. Aenean sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum.', 34, 2),
 (66, 'Sky', 'Sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum. Phasellus interdum quis lacus non auctor. Phasellus non commodo nullac.', 34, 3),
 (67, 'Waves', 'Consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum. Phasellus interdum quis lacus non auctor. Phasellus non commodo nullac.', 1, 7),
-(68, 'Dance', 'Sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum. Phasellus interdum quis lacus non auctor. Phasellus non commodo nullac.', 1, 2),
+(68, 'Dance', 'Sollicitudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum. Phasellus interdum quis lacus non auctor. Phasellus non commodo nullac.', 1, 1),
 (69, 'Stairs', 'Tudin consequat leo in pretium. Donec interdum quis lacus non auctor. Phasellus non commodo nulla, quis feugiat ligula. Vivamus facilisis consequat lacus, ut elementum nisi malesuada ac. Etiam congue elit a venenatis bibendum. Phasellus interdum quis lacus non auctor. Phasellus non commodo nullac.', 1, 25);
 
 -- --------------------------------------------------------
@@ -422,6 +449,26 @@ INSERT INTO `product_category` (`id`, `name`) VALUES
 (34, 'Abstrakt'),
 (36, 'Porträtt'),
 (37, 'Travel');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `customer_data_id` varchar(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `email`, `password`, `customer_data_id`) VALUES
+(2, 'dmitrij.vel@live.se', '$2y$10$ahN3WuNVTc5qJwAJZIVBJecGA.8r6LVPt1jImSDVWahYXl.wxpOTK', 'e30e5ac0d19269df74b91c2c3c3ca079');
 
 --
 -- Indexes for dumped tables
@@ -511,6 +558,13 @@ ALTER TABLE `product_category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `customer_data_id` (`customer_data_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -518,13 +572,13 @@ ALTER TABLE `product_category`
 -- AUTO_INCREMENT for table `active_order_of_products`
 --
 ALTER TABLE `active_order_of_products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `completed_order_of_products`
 --
 ALTER TABLE `completed_order_of_products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `order_status`
@@ -536,13 +590,19 @@ ALTER TABLE `order_status`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `product_category`
 --
 ALTER TABLE `product_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -595,6 +655,12 @@ ALTER TABLE `price_of_product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `category_foreignk` FOREIGN KEY (`category_id`) REFERENCES `product_category` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`customer_data_id`) REFERENCES `customer_data` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
