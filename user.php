@@ -104,7 +104,7 @@ $orderTableClassList = ((count($activeOrders) + count($completedOrders)) == 0) ?
                             <dt>E-post</dt>
                             <dd id="email"> <?php echo $defaultEmail; ?> </dd>
                             <dt>Adress</dt>
-                            <dd id="address"><?php echo htmlspecialchars($customerData['street'] . "</br>" . $customerData['postal_number'] . " " . $customerData['county'], ENT_QUOTES, 'UTF-8'); ?></dd>
+                            <dd id="address"><?php echo $defaultStreet . ", " . $defaultPostal . " " . $defaultCounty; ?></dd>
                         </dl>
 
                         <div class="change-btn-container">
