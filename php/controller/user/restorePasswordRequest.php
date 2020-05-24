@@ -27,7 +27,7 @@ $newPassword = generateRandomPassword(16);
 
 $to = $email;
 $subject = "FrameMe - Återställning av löseordet.";
-$message = 'Hej!</br></br>Ditt nya lösenordet är <b>' . $newPassword . '</b></br></br>Vänliga Hälsningar</br>FramMe Support';
+$message = 'Hej!</br></br>Nya lösenordet är <b>' . $newPassword . '</b></br></br>Vänliga Hälsningar</br>FramMe Support';
 $header = "From:frameme@noreply.se \r\n";
 $header .= "Cc:framemesupport@noreply.se \r\n";
 $header .= "MIME-Version: 1.0\r\n";

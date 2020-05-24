@@ -412,7 +412,7 @@ shopLib = (function() {
         error.textContent = "";
         success.textContent = "";
         if (this.readyState == 4 && this.status == 200) {
-          completePasswordRequest("Ditt nya lösenord har skickats.");
+          completePasswordRequest("Nya lösenordet skickades till din e-post.");
         } else if (this.readyState == 4 && this.status == 406) {
           abortPasswordRequest("Kunde inte skicka ett medelande.");
           return;
