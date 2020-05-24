@@ -437,6 +437,26 @@ shopLib = (function() {
       }
     },
 
+    updateUserInfo: function(event) {
+      const form = event.currentTarget;
+      const formData = new FormData(form);
+      const error = document.querySelector("#update-user-form-error-msg");
+      const xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        error.textContent = "";
+        if (this.readyState == 4 && this.status == 200) {
+          location.reload();
+        } else if (this.readyState == 4 && this.status == 400) {
+          error.textContent = "Kunde inte uppdatera profil.";
+          event.preventDefault();
+          return;
+        }
+      };
+      xmlhttp.open("POST", `${CONTROLLER_PATH}/user/updateUserInfoRequest.php`);
+      xmlhttp.send(formData);
+      event.preventDefault();
+    },
+
     isStrongPassword: function(string) {
       const passwordRegex = new RegExp(
         "^(((?=.*[a-z])(?=.*[A-Z]))((?=.*[A-Z])(?=.*[0-9])))(?=.*[!-._@#$%^&*]{1,})(?=.{8,})"

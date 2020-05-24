@@ -16,16 +16,14 @@ if (!isset($_POST['email'])) {
 }
 
 $email = $_POST['email'];
-$isRegistered = isEmailRegistered($email);
 
-if (!$isRegistered) {
+if (!isEmailRegistered($email)) {
     http_response_code(400);
     die;
 }
 
 $user_id = getUserIdByEmail($email);
 $newPassword = generateRandomPassword(16);
-$hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
 $to = $email;
 $subject = "FrameMe - Återställning av löseordet.";
@@ -36,11 +34,11 @@ $header .= "MIME-Version: 1.0\r\n";
 $header .= "Content-type: text/html\r\n";
 
 $mailSent = mail($to, $subject, $message, $header);
-
 if (!$mailSent) {
     http_response_code(406);
     die;
 }
 
+$hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 setUserPassword($user_id, $hashedPassword);
 die;

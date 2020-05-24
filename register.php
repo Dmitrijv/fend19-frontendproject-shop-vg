@@ -63,7 +63,7 @@ session_start();
                         <input class="checkout-form__delivery-section__input" required id="lname" type="text" name="lname" minlenght=1 maxlength=20>
 
                         <label class="checkout-form__delivery-section__label" for="">Telefonnummer</label>
-                        <input class="checkout-form__delivery-section__input" required id="tel" type="text" name="phone" placeholder="073-111 22 33" pattern="0[0-9]{1,3}-?[0-9 ]{6,9}" minlength=8 maxlength=13>
+                        <input class="checkout-form__delivery-section__input" required id="tel" type="text" name="phone" placeholder="073-111 22 33" pattern="0[0-9]{1,3}-?[0-9 ]{6,10}" minlength=8 maxlength=14>
 
                         <label class="checkout-form__delivery-section__label" for="">Gatuadress</label>
                         <input class="checkout-form__delivery-section__input" required id="adress" type="text" name="adress" placeholder="Gustafvägen 10D" maxlength=50>

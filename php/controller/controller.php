@@ -331,3 +331,8 @@ function setUserPassword($user_id, $newPassword)
 {
     DB::run("UPDATE user SET password=? WHERE id=?", [$newPassword, $user_id]);
 }
+
+function setCustomerDataId($user_id, $customer_data_id)
+{
+    DB::run("UPDATE user SET customer_data_id=? WHERE id=?", [$customer_data_id, $user_id]);
+}

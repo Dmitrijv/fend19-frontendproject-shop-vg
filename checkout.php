@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-$defaultEmail = (isset($_SESSION['userData']["email"])) ? $_SESSION['userData']["email"] : "";
-$defaultFname = (isset($_SESSION['userData']["first_name"])) ? $_SESSION['userData']["first_name"] : "";
-$defaultLname = (isset($_SESSION['userData']["last_name"])) ? $_SESSION['userData']["last_name"] : "";
-$defaultPhonenum = (isset($_SESSION['userData']["phone"])) ? $_SESSION['userData']["phone"] : "";
-$defaultStreet = (isset($_SESSION['userData']["street"])) ? $_SESSION['userData']["street"] : "";
-$defaultPostal = (isset($_SESSION['userData']["postal_number"])) ? $_SESSION['userData']["postal_number"] : "";
-$defaultCounty = (isset($_SESSION['userData']["county"])) ? $_SESSION['userData']["county"] : "";
+$defaultEmail = (isset($_SESSION['userData']["email"])) ? htmlspecialchars($_SESSION['userData']["email"], ENT_QUOTES, 'UTF-8') : "";
+$defaultFname = (isset($_SESSION['userData']["first_name"])) ? htmlspecialchars($_SESSION['userData']["first_name"], ENT_QUOTES, 'UTF-8') : "";
+$defaultLname = (isset($_SESSION['userData']["last_name"])) ? htmlspecialchars($_SESSION['userData']["last_name"], ENT_QUOTES, 'UTF-8') : "";
+$defaultPhonenum = (isset($_SESSION['userData']["phone"])) ? htmlspecialchars($_SESSION['userData']["phone"], ENT_QUOTES, 'UTF-8') : "";
+$defaultStreet = (isset($_SESSION['userData']["street"])) ? htmlspecialchars($_SESSION['userData']["street"], ENT_QUOTES, 'UTF-8') : "";
+$defaultPostal = (isset($_SESSION['userData']["postal_number"])) ? htmlspecialchars($_SESSION['userData']["postal_number"], ENT_QUOTES, 'UTF-8') : "";
+$defaultCounty = (isset($_SESSION['userData']["county"])) ? htmlspecialchars($_SESSION['userData']["county"], ENT_QUOTES, 'UTF-8') : "";
 
 ?>
 
