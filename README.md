@@ -40,7 +40,7 @@ The new password is sent to the user via automated email. If the process of send
     die;
 ```
 
-The new password contains at least 16 characters and confirms to the same rules as when creating a password for a new account.
+The new password contains at least 16 characters and conforms to the same rules as when creating a password for a new account.
 
 ```php
 function generateRandomPassword($length)
@@ -55,5 +55,37 @@ function generateRandomPassword($length)
     for ($i = 0; $i < 3; $i++) {$randomString .= $numbers[rand(0, strlen($numbers) - 1)];}
     for ($i = 0; $i < 3; $i++) {$randomString .= $characters[rand(0, strlen($characters) - 1)];}
     return str_shuffle($randomString);
+}
+```
+
+### Resetting the password
+
+If a user attempts to access a page that he should not have access to he is redirected to an error page. This check is performed at the very beginning of any page that displays content based on a GET or a POST variable.
+
+Basic request validity check on invoice.php page:
+
+```php
+// invalid request
+if (
+    !isset($_SESSION['userData'])
+    || !isset($_SESSION['userData']['user_id'])
+    || !isset($_GET['orderId'])
+    || !is_numeric($_GET['orderId'])
+    || !isset($_GET['orderStatus'])
+    || !is_numeric($_GET['orderStatus'])
+) {
+    header("Location: error.php?errorMessage=Kunde inte visa fakturan.</br>Detta kan bero på att ordern inte finns eller att du inte har rättigheter att se ordern.</br>Logga in på kontot som ordern tillhör och försök igen.");
+    die;
+}
+```
+
+Supplimental privilege check:
+
+```php
+// requesting restricted information
+$isEligible = isset($order) && (intval($_SESSION['userData']['user_id']) == $order['user_id'] || $_SESSION['userData']['user_id'] == $order['customer_data_id']);
+if (!$isEligible) {
+    header("Location: error.php?errorMessage=Kunde inte visa fakturan.</br>Detta kan bero på att ordern inte finns eller att du inte har rättigheter att se ordern.</br>Logga in på kontot som ordern tillhör och försök igen.");
+    die;
 }
 ```
