@@ -76,7 +76,7 @@ $defaultCounty = (isset($_SESSION['userData']["county"])) ? htmlspecialchars($_S
                     <input class="checkout-form__delivery-section__input" id="lname" type="text" value="<?php echo $defaultLname; ?>" name="lname" maxlength=20>
 
                     <label class="checkout-form__delivery-section__label" for="">Telefonnummer</label>
-                    <input class="checkout-form__delivery-section__input" id="tel" type="text" value="<?php echo $defaultPhonenum; ?>" name="phone" placeholder="+46 or 07 pattern" maxlength=12>
+                    <input class="checkout-form__delivery-section__input" id="tel" type="text" value="<?php echo $defaultPhonenum; ?>" name="phone" placeholder="073-111 22 33" pattern="0[0-9]{1,3}-?[0-9 ]{6,10}" maxlength=14>
 
                     <label class="checkout-form__delivery-section__label" for="">Gatuadress</label>
                     <input class="checkout-form__delivery-section__input" id="adress" type="text" value="<?php echo $defaultStreet; ?>" name="adress" placeholder="Gustafvägen 10D" maxlength=50>

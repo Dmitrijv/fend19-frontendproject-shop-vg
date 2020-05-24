@@ -92,11 +92,8 @@ const _rules = (function() {
     },
 
     isPhone: function(value, errorMsg) {
-      const reg1 = /\+?(?:0{0,2}[46]*){1}7{1}[0-9]{8}$/;
-      /* Matches 0798789678 */
-      const reg2 = /^(([+]\d{2}[ ][1-9]\d{0,2}[ ])|([0]\d{1,3}[-]))((\d{2}([ ]\d{2}){2})|(\d{3}([ ]\d{3})*([ ]\d{2})+))$/;
-      /* Matches 	+46 8 123 456 78 | 08-123 456 78 | 0123-456 78 */
-      if (!reg1.test(value) && !reg2.test(value)) {
+      const regex = new RegExp("0[0-9]{1,3}-?[0-9 ]{6,10}");
+      if (!regex.test(value)) {
         return errorMsg;
       }
     },
