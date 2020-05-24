@@ -21,8 +21,10 @@ I use Regex expressions to validate the passwords and also to identify which par
 
 ### Resetting the password
 
-A user can choose to have a new password sent to his account email. If a valid registered email is provided a new password is generated with PHP.
-The new password is sent to the user via email. If the process of sending the email fails then the old password is not updated.
+A user can choose to generate a new account password if he or she forgot the old one. If a valid registered email is provided a new password is generated with PHP.
+
+The new password contains at least 16 characters and confirms to the same rules as when creating a password for a new account.
+The new password is sent to the user via automated email. If the process of sending the email fails then the old password is not updated.
 
 ```php
     $user_id = getUserIdByEmail($email);
