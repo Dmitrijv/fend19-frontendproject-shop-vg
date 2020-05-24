@@ -459,7 +459,7 @@ shopLib = (function() {
 
     isStrongPassword: function(string) {
       const passwordRegex = new RegExp(
-        "^(((?=.*[a-z])(?=.*[A-Z]))((?=.*[A-Z])(?=.*[0-9])))(?=.*[!-._@#$%^&*]{1,})(?=.{8,})"
+        "^(((?=.*[a-z])(?=.*[A-Z]))((?=.*[A-Z])(?=.*[0-9])))(?=.*[!-._@#$%^&*]{1,})(?=.{10,})"
       );
       return passwordRegex.test(string);
     },
