@@ -58,7 +58,7 @@ function generateRandomPassword($length)
 }
 ```
 
-### Resetting the password
+### Restricting pages
 
 If a user attempts to access a page that he should not have access to he is redirected to an error page. This check is performed at the very beginning of any page that displays content based on a GET or a POST variable.
 
